@@ -20,6 +20,11 @@ class Comprobante32 implements ExpressionExtractorInterface
         $this->matchDetector = new MatchDetector('http://www.sat.gob.mx/cfd/3', 'cfdi:Comprobante', 'version', '3.2');
     }
 
+    public function uniqueName(): string
+    {
+        return 'CFDI32';
+    }
+
     public function matches(DOMDocument $document): bool
     {
         return $this->matchDetector->matches($document);
@@ -35,14 +40,25 @@ class Comprobante32 implements ExpressionExtractorInterface
         $uuid = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Complemento', 'tfd:TimbreFiscalDigital', 'UUID');
         $rfcEmisor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Emisor', 'rfc');
         $rfcReceptor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Receptor', 'rfc');
-        $totalComprobante = $helper->getAttribute('cfdi:Comprobante', 'total');
+        $total = $helper->getAttribute('cfdi:Comprobante', 'total');
 
-        return '?' . implode('&', [
-            're=' . $rfcEmisor,
-            'rr=' . $rfcReceptor,
-            'tt=' . $this->formatTotal($totalComprobante),
-            'id=' . $uuid,
+        return $this->format([
+            're' => $rfcEmisor,
+            'rr' => $rfcReceptor,
+            'tt' => $total,
+            'id' => $uuid,
         ]);
+    }
+
+    public function format(array $values): string
+    {
+        return '?'
+            . implode('&', [
+                're=' . ($values['re'] ?? ''),
+                'rr=' . ($values['rr'] ?? ''),
+                'tt=' . $this->formatTotal($values['tt'] ?? ''),
+                'id=' . ($values['id'] ?? ''),
+            ]);
     }
 
     public function formatTotal(string $input): string

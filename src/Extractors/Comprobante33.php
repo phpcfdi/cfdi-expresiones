@@ -20,6 +20,11 @@ class Comprobante33 implements ExpressionExtractorInterface
         $this->matchDetector = new MatchDetector('http://www.sat.gob.mx/cfd/3', 'cfdi:Comprobante', 'Version', '3.3');
     }
 
+    public function uniqueName(): string
+    {
+        return 'CFDI33';
+    }
+
     public function matches(DOMDocument $document): bool
     {
         return $this->matchDetector->matches($document);
@@ -35,18 +40,28 @@ class Comprobante33 implements ExpressionExtractorInterface
         $uuid = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Complemento', 'tfd:TimbreFiscalDigital', 'UUID');
         $rfcEmisor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Emisor', 'Rfc');
         $rfcReceptor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Receptor', 'Rfc');
-        $totalComprobante = $helper->getAttribute('cfdi:Comprobante', 'Total');
+        $total = $helper->getAttribute('cfdi:Comprobante', 'Total');
         $sello = substr($helper->getAttribute('cfdi:Comprobante', 'Sello'), -8);
 
-        $total = $this->formatTotal($totalComprobante);
-
-        return 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?' . implode('&', [
-            'id=' . $uuid,
-            're=' . $rfcEmisor,
-            'rr=' . $rfcReceptor,
-            'tt=' . $total,
-            'fe=' . substr($sello, -8),
+        return $this->format([
+            'id' => $uuid,
+            're' => $rfcEmisor,
+            'rr' => $rfcReceptor,
+            'tt' => $total,
+            'fe' => substr($sello, -8),
         ]);
+    }
+
+    public function format(array $values): string
+    {
+        return 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?'
+            . implode('&', [
+                'id=' . ($values['id'] ?? ''),
+                're=' . ($values['re'] ?? ''),
+                'rr=' . ($values['rr'] ?? ''),
+                'tt=' . $this->formatTotal($values['tt'] ?? ''),
+                'fe=' . ($values['fe'] ?? ''),
+            ]);
     }
 
     public function formatTotal(string $input): string

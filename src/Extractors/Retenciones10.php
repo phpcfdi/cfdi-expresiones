@@ -26,6 +26,11 @@ class Retenciones10 implements ExpressionExtractorInterface
         );
     }
 
+    public function uniqueName(): string
+    {
+        return 'RET10';
+    }
+
     public function matches(DOMDocument $document): bool
     {
         return $this->matchDetector->matches($document);
@@ -76,12 +81,33 @@ class Retenciones10 implements ExpressionExtractorInterface
             $helper->getAttribute('retenciones:Retenciones', 'retenciones:Totales', 'montoTotOperacion')
         );
 
-        return '?' . implode('&', array_filter([
-            're=' . $rfcEmisor,
-            $rfcReceptorKey . '=' . $rfcReceptor,
-            'tt=' . $this->formatTotal($total),
-            'id=' . $uuid,
-        ]));
+        return $this->format([
+            're' => $rfcEmisor,
+            $rfcReceptorKey => $rfcReceptor,
+            'tt' => $this->formatTotal($total),
+            'id' => $uuid,
+        ]);
+    }
+
+    public function format(array $values): string
+    {
+        $receptorKey = 'rr';
+        if (isset($values['nr'])) {
+            $receptorKey = 'nr';
+            $values['nr'] = $this->formatForeignTaxId($values['nr']);
+        }
+        return '?'
+            . implode('&', [
+                're=' . ($values['re'] ?? ''),
+                $receptorKey . '=' . ($values[$receptorKey] ?? ''),
+                'tt=' . $this->formatTotal($values['tt'] ?? ''),
+                'id=' . ($values['id'] ?? ''),
+            ]);
+    }
+
+    public function formatForeignTaxId(string $foreignTaxId): string
+    {
+        return str_pad($foreignTaxId, 20, '0', STR_PAD_LEFT);
     }
 
     public function formatTotal(string $input): string

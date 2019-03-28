@@ -1,17 +1,15 @@
 # CHANGELOG
 
-## About SemVer
+## Version 2.0.0 2019-03-28
 
-In summary, [SemVer](https://semver.org/) can be viewed as ` Breaking . Feature . Fix `, where:
-
-- Breaking version = includes incompatible changes to the API
-- Feature version = adds new feature(s) in a backwards-compatible manner
-- Fix version = includes backwards-compatible bug fixes
-
-**Non breaking changes (doesn't apply any of the SemVer rules)**
-
-- Version `0.x.x`
-- Library elements with annotation `@internal` doesn't apply any of the SemVer rules
+- Allows to create an expression with format fixes from specific types
+- Change `ExpressionExtractorInterface` to add `public function format(array $values): string`
+- Give a unique name for extractors, so when discovering by type can obtain an item
+- Change `ExpressionExtractorInterface` to add `public function uniqueName(): string`
+    - `Comprobante33` uses `CFDI33`
+    - `Comprobante32` uses `CFDI32`
+    - `Retenciones10` uses `RET10`
+- Rename `ExpressionExtractor` to `DiscoverExtractor`, it makes more sense
 
 
 ## Version 1.0.0 2019-03-27

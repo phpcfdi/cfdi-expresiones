@@ -53,10 +53,10 @@ composer require phpcfdi/cfdi-expresiones
 
 ```php
 <?php
-use PhpCfdi\CfdiExpresiones\ExpressionExtractor;
+use PhpCfdi\CfdiExpresiones\DiscoverExtractor;
 
 // creamos el extractor
-$extractor = new ExpressionExtractor();
+$extractor = new DiscoverExtractor();
 
 // abrimos el documento en un DOMDocument
 $document = new DOMDocument();
