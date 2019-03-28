@@ -1,1 +1,108 @@
-# cfdi-expresiones
+# phpcfdi/cfdi-expresiones
+
+[![Source Code][badge-source]][source]
+[![Latest Version][badge-release]][release]
+[![Software License][badge-license]][license]
+[![Build Status][badge-build]][build]
+[![Scrutinizer][badge-quality]][quality]
+[![Coverage Status][badge-coverage]][coverage]
+[![Total Downloads][badge-downloads]][downloads]
+
+> Genera expresiones de CFDI 3.3, CFDI 3.2 y RET 1.0
+
+:us: The documentation of this project is in spanish as this is the natural language for intented audience.
+
+:mexico: La documentación del proyecto está en español porque ese es el lenguaje principal de los usuarios.
+
+Esta librería contiene objetos de ayuda para crear expresiones de CFDI 3.2, CFDI 3.3 y RET 1.0
+de acuerdo a la información técnica del SAT en el Anexo 20.
+
+Estas expresiones se utilizan principalmente para dos motivos:
+
+1. Generar el código QR de una representación impresa de un CFDI o RET.
+2. Consultar el WebService del SAT de estado de un CFDI.
+
+Ejemplo de expresión para CFDI 3.3:
+
+```text
+https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC&re=POT9207213D6&rr=DIM8701081LA&tt=2010.01&fe=/OAgdg==
+```
+
+Ejemplo de expresión para CFDI 3.2:
+
+```text
+?re=AAA010101AAA&rr=COSC8001137NA&tt=0000001234.567800&id=CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC
+```
+
+Ejemplo de expresión para RET 1.0:
+
+```text
+?&re=XAXX010101000&nr=12345678901234567890%tt=1234567890.123456&id=ad662d33-6934-459c-a128-BDf0393f0f44
+```
+
+
+## Instalación
+
+Usa [composer](https://getcomposer.org/)
+
+```shell
+composer require phpcfdi/cfdi-expresiones
+```
+
+## Ejemplo básico de uso
+
+```php
+<?php
+use PhpCfdi\CfdiExpresiones\ExpressionExtractor;
+
+// creamos el extractor
+$extractor = new ExpressionExtractor();
+
+// abrimos el documento en un DOMDocument
+$document = new DOMDocument();
+$document->load('archivo-cfdi.xml');
+
+// obtenemos la expresión
+$expression = $extractor->extract($document);
+```
+
+## Compatilibilidad
+
+Esta librería se mantendrá compatible con al menos la versión con
+[soporte activo de PHP](http://php.net/supported-versions.php) más reciente.
+
+También utilizamos [Versionado Semántico 2.0.0](https://semver.org/lang/es/) por lo que puedes usar esta librería
+sin temor a romper tu aplicación.
+
+
+## Contribuciones
+
+Las contribuciones con bienvenidas. Por favor lee [CONTRIBUTING][] para más detalles
+y recuerda revisar el archivo de tareas pendientes [TODO][] y el [CHANGELOG][].
+
+
+## Copyright and License
+
+The phpcfdi/cfdi-expresiones library is copyright © [Carlos C Soto](http://eclipxe.com.mx/)
+and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
+
+
+[contributing]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/CONTRIBUTING.md
+[changelog]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/docs/CHANGELOG.md
+[todo]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/docs/TODO.md
+
+[source]: https://github.com/phpcfdi/cfdi-expresiones
+[release]: https://github.com/phpcfdi/cfdi-expresiones/releases
+[license]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/LICENSE
+[build]: https://travis-ci.org/phpcfdi/cfdi-expresiones?branch=master
+[quality]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/
+[coverage]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/code-structure/master/code-coverage
+[downloads]: https://packagist.org/packages/phpcfdi/cfdi-expresiones
+
+[badge-source]: http://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?style=flat-square
+[badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg?style=flat-square
+[badge-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[badge-build]: https://img.shields.io/travis/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
+[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
+[badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/cfdi-expresiones.svg?style=flat-square

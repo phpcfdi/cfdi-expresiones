@@ -1,0 +1,62 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PhpCfdi\CfdiExpresiones\Tests\Unit\Extractors;
+
+use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
+use PhpCfdi\CfdiExpresiones\Extractors\Comprobante33;
+use PhpCfdi\CfdiExpresiones\Tests\Unit\DOMDocumentsTestCase;
+
+class Comprobante33Test extends DOMDocumentsTestCase
+{
+    public function testMatchesCfdi33(): void
+    {
+        $document = $this->documentCfdi33();
+        $extractor = new Comprobante33();
+        $this->assertTrue($extractor->matches($document));
+    }
+
+    public function testExtractCfdi33(): void
+    {
+        $document = $this->documentCfdi33();
+        $extractor = new Comprobante33();
+        $expectedExpression = 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?'
+            . 'id=CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC&re=POT9207213D6&rr=DIM8701081LA&tt=2010.01&fe=/OAgdg==';
+        $this->assertSame($expectedExpression, $extractor->extract($document));
+    }
+
+    public function testNotMatchesCfdi32(): void
+    {
+        $document = $this->documentCfdi32();
+        $extractor = new Comprobante33();
+        $this->assertFalse($extractor->matches($document));
+    }
+
+    public function testExtractNotMatchesThrowException(): void
+    {
+        $document = $this->documentCfdi32();
+        $extractor = new Comprobante33();
+        $this->expectException(UnmatchedDocumentException::class);
+        $this->expectExceptionMessage('The document is not a CFDI 3.3');
+        $extractor->extract($document);
+    }
+
+    /**
+     * @param string $input total cannot have more than 6 decimals as set in Anexo 20
+     * @param string $expectedFormat
+     * @testWith ["123.45", "123.45"]
+     *           ["0.123456", "0.123456"]
+     *           ["0.1234561", "0.123456"]
+     *           ["0.1234565", "0.123457"]
+     *           ["1000.00000", "1000.0"]
+     *           ["0", "0.0"]
+     *           ["0.00", "0.0"]
+     *           ["", "0.0"]
+     */
+    public function testHowTotalMustBeFormatted(string $input, string $expectedFormat): void
+    {
+        $extractor = new Comprobante33();
+        $this->assertSame($expectedFormat, $extractor->formatTotal($input));
+    }
+}
