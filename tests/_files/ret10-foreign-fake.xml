@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<retenciones:Retenciones xmlns:retenciones="http://www.sat.gob.mx/esquemas/retencionpago/1" Version="1.0">
+  <retenciones:Emisor RFCEmisor="AAA010101AAA"/>
+  <retenciones:Receptor>
+    <retenciones:Extranjero NumRegIdTrib="1234567890"/>
+  </retenciones:Receptor>
+  <retenciones:Totales montoTotOperacion="2000000.00"/>
+  <retenciones:Complemento>
+      <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" UUID="fc1b47b2-42f3-4ca2-8587-36e0a216c4d5"/>
+  </retenciones:Complemento>
+</retenciones:Retenciones>

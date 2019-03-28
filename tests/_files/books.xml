@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<b:books xmlns:b="http://example.com/books" xmlns:t="http://example.com/topics" version="v1">
+    <b:library>
+        <t:topic name="Development">
+            <b:book author="Carlos C Soto" name="Foo" />
+            <b:book author="Naomi" name="Bar" />
+        </t:topic>
+        <t:topic name="Other">
+            <b:book author="Leonardo" name="Zoo" />
+        </t:topic>
+    </b:library>
+</b:books>
