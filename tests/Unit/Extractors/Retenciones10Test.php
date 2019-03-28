@@ -12,6 +12,12 @@ use PhpCfdi\CfdiExpresiones\Tests\Unit\DOMDocumentsTestCase;
 
 class Retenciones10Test extends DOMDocumentsTestCase
 {
+    public function testUniqueName(): void
+    {
+        $extrator = new Retenciones10();
+        $this->assertSame('RET10', $extrator->uniqueName());
+    }
+
     public function testMatchesRetenciones10(): void
     {
         $document = $this->documentRet10Foreign();

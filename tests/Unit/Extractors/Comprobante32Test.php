@@ -10,6 +10,12 @@ use PhpCfdi\CfdiExpresiones\Tests\Unit\DOMDocumentsTestCase;
 
 class Comprobante32Test extends DOMDocumentsTestCase
 {
+    public function testUniqueName(): void
+    {
+        $extrator = new Comprobante32();
+        $this->assertSame('CFDI32', $extrator->uniqueName());
+    }
+
     public function testMatchesCfdi32(): void
     {
         $document = $this->documentCfdi32();
