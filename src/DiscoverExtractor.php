@@ -80,6 +80,12 @@ class DiscoverExtractor implements ExpressionExtractorInterface
         return 'discover';
     }
 
+    public function obtain(DOMDocument $document): array
+    {
+        $discovered = $this->getFirstMatch($document);
+        return $discovered->obtain($document);
+    }
+
     public function extract(DOMDocument $document): string
     {
         $discovered = $this->getFirstMatch($document);

@@ -30,7 +30,7 @@ class Comprobante32 implements ExpressionExtractorInterface
         return $this->matchDetector->matches($document);
     }
 
-    public function extract(DOMDocument $document): string
+    public function obtain(DOMDocument $document): array
     {
         if (! $this->matches($document)) {
             throw new UnmatchedDocumentException('The document is not a CFDI 3.2');
@@ -42,12 +42,17 @@ class Comprobante32 implements ExpressionExtractorInterface
         $rfcReceptor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Receptor', 'rfc');
         $total = $helper->getAttribute('cfdi:Comprobante', 'total');
 
-        return $this->format([
+        return [
             're' => $rfcEmisor,
             'rr' => $rfcReceptor,
             'tt' => $total,
             'id' => $uuid,
-        ]);
+        ];
+    }
+
+    public function extract(DOMDocument $document): string
+    {
+        return $this->format($this->obtain($document));
     }
 
     public function format(array $values): string

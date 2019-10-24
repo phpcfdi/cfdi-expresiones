@@ -12,6 +12,8 @@ interface ExpressionExtractorInterface
 
     public function matches(DOMDocument $document): bool;
 
+    public function obtain(DOMDocument $document): array;
+
     public function extract(DOMDocument $document): string;
 
     /**
