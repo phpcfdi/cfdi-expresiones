@@ -23,9 +23,7 @@ class DiscoverExtractor implements ExpressionExtractorInterface
         $this->expressions = $expressions;
     }
 
-    /**
-     * @return ExpressionExtractorInterface[];
-     */
+    /** @return ExpressionExtractorInterface[] */
     public function defaultExtractors(): array
     {
         return [
