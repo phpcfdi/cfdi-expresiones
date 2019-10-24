@@ -44,10 +44,10 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
     public function providerExpressionOnValidDocuments()
     {
         return [
-            'Cfdi33' => [$this->documentCfdi33()],
-            'Cfdi32' => [$this->documentCfdi32()],
-            'Ret10Mexican' => [$this->documentRet10Mexican()],
-            'Ret10Foreign' => [$this->documentRet10Foreign()],
+            'Cfdi33' => [$this->documentCfdi33(), 'CFDI33'],
+            'Cfdi32' => [$this->documentCfdi32(), 'CFDI32'],
+            'Ret10Mexican' => [$this->documentRet10Mexican(), 'RET10'],
+            'Ret10Foreign' => [$this->documentRet10Foreign(), 'RET10'],
         ];
     }
 
@@ -60,6 +60,20 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
         $extrator = new DiscoverExtractor();
         $this->assertTrue($extrator->matches($document));
         $this->assertNotEmpty($extrator->extract($document));
+    }
+
+    /**
+     * @param DOMDocument $document
+     * @param string $type
+     * @dataProvider providerExpressionOnValidDocuments
+     */
+    public function testExtractProducesTheSameResultsAsObtainAndFormat(DOMDocument $document, string $type): void
+    {
+        $extrator = new DiscoverExtractor();
+        $values = $extrator->obtain($document);
+        $expression = $extrator->format($values, $type);
+        $expectedExpression = $extrator->extract($document);
+        $this->assertSame($expression, $expectedExpression);
     }
 
     public function testFormatUsingNoType(): void
