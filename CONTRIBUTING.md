@@ -9,7 +9,7 @@ By participating in this project and its community, you are expected to uphold t
 ## Team members
 
 * [Carlos C Soto](https://github.com/eclipxe13) - original author and maintainer
-* [GitHub constributors](https://github.com/phpcfdi/cfdi-expresiones/graphs/contributors)
+* [GitHub contributors](https://github.com/phpcfdi/cfdi-expresiones/graphs/contributors)
 
 ## Communication Channels
 
@@ -75,8 +75,8 @@ If any of these do not pass, it will result in a complete build failure.
 Before you can run these, be sure to `composer install` or `composer update`.
 
 ```shell
-vendor/bin/parallel-lint src/ tests/
 vendor/bin/phpcs -sp src/ tests/
 vendor/bin/php-cs-fixer fix -v --dry-run
 vendor/bin/phpunit --coverage-text
+vendor/bin/phpstan analyse --level max src/ tests/
 ```

@@ -36,7 +36,7 @@ class Retenciones10 implements ExpressionExtractorInterface
         return $this->matchDetector->matches($document);
     }
 
-    public function extract(DOMDocument $document): string
+    public function obtain(DOMDocument $document): array
     {
         if (! $this->matches($document)) {
             throw new UnmatchedDocumentException('The document is not a RET 1.0');
@@ -81,12 +81,17 @@ class Retenciones10 implements ExpressionExtractorInterface
             $helper->getAttribute('retenciones:Retenciones', 'retenciones:Totales', 'montoTotOperacion')
         );
 
-        return $this->format([
+        return [
             're' => $rfcEmisor,
             $rfcReceptorKey => $rfcReceptor,
             'tt' => $this->formatTotal($total),
             'id' => $uuid,
-        ]);
+        ];
+    }
+
+    public function extract(DOMDocument $document): string
+    {
+        return $this->format($this->obtain($document));
     }
 
     public function format(array $values): string

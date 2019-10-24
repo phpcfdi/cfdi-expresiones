@@ -40,7 +40,6 @@ Ejemplo de expresión para RET 1.0:
 ?&re=XAXX010101000&nr=12345678901234567890%tt=1234567890.123456&id=ad662d33-6934-459c-a128-BDf0393f0f44
 ```
 
-
 ## Instalación
 
 Usa [composer](https://getcomposer.org/)
@@ -74,18 +73,20 @@ Esta librería se mantendrá compatible con al menos la versión con
 También utilizamos [Versionado Semántico 2.0.0](https://semver.org/lang/es/) por lo que puedes usar esta librería
 sin temor a romper tu aplicación.
 
+### Cambiar de la versión 2.0.0 a la versión 3.0.0
+
+La versión `3.0.0` agrega un método a la interfaz `ExpressionExtractorInterface` por lo que es necesario crear una
+versión mayor. Puedes actualizar con confianza si no creaste alguna clase que implemente `ExpressionExtractorInterface`.
 
 ## Contribuciones
 
 Las contribuciones con bienvenidas. Por favor lee [CONTRIBUTING][] para más detalles
 y recuerda revisar el archivo de tareas pendientes [TODO][] y el [CHANGELOG][].
 
-
 ## Copyright and License
 
-The phpcfdi/cfdi-expresiones library is copyright © [Carlos C Soto](http://eclipxe.com.mx/)
+The phpcfdi/cfdi-expresiones library is copyright © [PhpCfdi](https://www.phpcfdi.com/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
-
 
 [contributing]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/CONTRIBUTING.md
 [changelog]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/docs/CHANGELOG.md
@@ -99,9 +100,9 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [coverage]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/code-structure/master/code-coverage
 [downloads]: https://packagist.org/packages/phpcfdi/cfdi-expresiones
 
-[badge-source]: http://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?style=flat-square
+[badge-source]: https://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?style=flat-square
 [badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg?style=flat-square
-[badge-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[badge-license]: https://img.shields.io/github/license/phpcfdi/cfdi-expresiones.svg?style=flat-square
 [badge-build]: https://img.shields.io/travis/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
 [badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
 [badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square

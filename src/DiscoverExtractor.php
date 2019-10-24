@@ -23,9 +23,7 @@ class DiscoverExtractor implements ExpressionExtractorInterface
         $this->expressions = $expressions;
     }
 
-    /**
-     * @return ExpressionExtractorInterface[];
-     */
+    /** @return ExpressionExtractorInterface[] */
     public function defaultExtractors(): array
     {
         return [
@@ -80,13 +78,19 @@ class DiscoverExtractor implements ExpressionExtractorInterface
         return 'discover';
     }
 
+    public function obtain(DOMDocument $document): array
+    {
+        $discovered = $this->getFirstMatch($document);
+        return $discovered->obtain($document);
+    }
+
     public function extract(DOMDocument $document): string
     {
         $discovered = $this->getFirstMatch($document);
         return $discovered->extract($document);
     }
 
-    public function format(array $values, $type = ''): string
+    public function format(array $values, string $type = ''): string
     {
         $extractor = $this->findByUniqueName($type);
         if (null === $extractor) {
