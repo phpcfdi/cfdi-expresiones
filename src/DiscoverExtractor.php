@@ -90,7 +90,7 @@ class DiscoverExtractor implements ExpressionExtractorInterface
         return $discovered->extract($document);
     }
 
-    public function format(array $values, $type = ''): string
+    public function format(array $values, string $type = ''): string
     {
         $extractor = $this->findByUniqueName($type);
         if (null === $extractor) {
