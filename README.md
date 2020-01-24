@@ -63,6 +63,9 @@ $document->load('archivo-cfdi.xml');
 
 // obtenemos la expresión
 $expression = $extractor->extract($document);
+
+// y también podemos obtener los valores inviduales
+$values = $extractor->obtain($document);
 ```
 
 ## Compatilibilidad
