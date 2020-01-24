@@ -27,7 +27,7 @@ interface ExpressionExtractorInterface
      * Obtain the relevant values from the given XML Document
      *
      * @param DOMDocument $document
-     * @return array
+     * @return array<string, string>
      */
     public function obtain(DOMDocument $document): array;
 

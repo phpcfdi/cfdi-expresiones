@@ -41,7 +41,8 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
         $extrator->extract($document);
     }
 
-    public function providerExpressionOnValidDocuments()
+    /** @return array<string, array> */
+    public function providerExpressionOnValidDocuments(): array
     {
         return [
             'Cfdi33' => [$this->documentCfdi33(), 'CFDI33'],
