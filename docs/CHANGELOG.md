@@ -2,6 +2,16 @@
 
 Notice: This library follows [SEMVER 2.0.0](https://semver.org/spec/v2.0.0.html) convention.
 
+## Version 3.0.1 2020-01-24
+
+This is a maintenance release.
+
+- Add example for `obtain` method.
+- Upgrade from `phpstan/phpstan-shim: ^0.11` to `phpstan/phpstan-shim: ^0.12`.
+- Update license year to 2020.
+- Fix links on README.
+- Update Travis-CI and Scrutinizer-CI scripts.
+
 ## Version 3.0.0 2019-10-24
 
 You should not have any trouble upgrading to from version `2.0.0` to `3.0.0` unless you are creating a concrete
