@@ -6,11 +6,13 @@ filter:
 build:
   dependencies:
     override:
-      - composer self-update --no-interaction --no-progress
+      - composer self-update --2 --stable --no-interaction --no-progress
       - composer remove squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpstan/phpstan --dev --no-interaction --no-progress --no-update
-      - composer install --no-interaction
+      - composer update --no-interaction --no-progress
   nodes:
     analysis:
+      project_setup:
+        override: true
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
