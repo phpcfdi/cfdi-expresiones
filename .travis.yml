@@ -18,9 +18,9 @@ before_script:
 
 script:
   - vendor/bin/php-cs-fixer fix --dry-run --verbose
-  - vendor/bin/phpcbf --colors -sp src/ tests/
+  - vendor/bin/phpcs --colors -sp src/ tests/
   - vendor/bin/phpunit --testdox --verbose
-  - vendor/bin/phpstan analyse --no-progress --verbose --level max src/ tests/
+  - vendor/bin/phpstan analyse --no-progress --level max src/ tests/
 
 notifications:
   email: false
