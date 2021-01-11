@@ -69,7 +69,6 @@ class DOMHelperTest extends TestCase
         $element = $helper->findElement('b:books', 'b:library', 't:topic', 'b:book');
         if (null === $element) {
             $this->fail('Expected to exists element was not found');
-            return;
         }
         $this->assertSame('Carlos C Soto', $element->getAttribute('author'));
     }

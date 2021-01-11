@@ -2,6 +2,10 @@
 
 Notice: This library follows [SEMVER 2.0.0](https://semver.org/spec/v2.0.0.html) convention.
 
+## UNRELEASED 2020-01-11
+
+- Fix PHPStan issue on tests.
+
 ## Version 3.0.1 2020-01-24
 
 This is a maintenance release.
