@@ -2,7 +2,7 @@
 * text=auto
 
 # Do not put this files on a distribution package (by .gitignore)
-/vendor              export-ignore
+/vendor/             export-ignore
 /composer.lock       export-ignore
 
 # Do not put this files on a distribution package

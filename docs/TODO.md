@@ -1,3 +1,9 @@
-# phpcfdi/cfdi-expresiones To Do List
+# phpcfdi/cfdi-expresiones Lista de tareas pendientes
 
-- 2019-10-24: Nada pendiente aún.
+## Pendientes
+
+*Describa aquí el un nivel 3 una tarea pendiente.*
+
+## Hechas
+
+*Una vez realizada la tarea muévala a esta sección.*
