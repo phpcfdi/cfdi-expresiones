@@ -13,7 +13,7 @@ This is a maintenance release.
 - Add example for `obtain` method.
 - Upgrade from `phpstan/phpstan-shim: ^0.11` to `phpstan/phpstan-shim: ^0.12`.
 - Update license year to 2020.
-- Fix links on README.
+- Fix links on README file.
 - Update Travis-CI and Scrutinizer-CI scripts.
 
 ## Version 3.0.0 2019-10-24
@@ -25,7 +25,7 @@ class that implements `ExpressionExtractorInterface`.
   that returns the extracted values, this change remove this responsability from `extract` method.
 - [BC] Change `DiscoverExtractor::format()`, second argument must be `string`, was `mixed`.
 - Update continuous integration and development environment, mayor changes:
-    - Travis build on PHP version `7.4snapshot`.
+    - Travis builds on PHP version `7.4snapshot`.
     - Scrutinizer decides which PHP version to run.
     - Remove `overtrue/phplint`.
 
