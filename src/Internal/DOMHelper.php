@@ -6,6 +6,7 @@ namespace PhpCfdi\CfdiExpresiones\Internal;
 
 use DOMDocument;
 use DOMElement;
+use LogicException;
 use PhpCfdi\CfdiExpresiones\Exceptions\AttributeNotFoundException;
 use PhpCfdi\CfdiExpresiones\Exceptions\ElementNotFoundException;
 
@@ -26,7 +27,7 @@ class DOMHelper
     public function rootElement(): DOMElement
     {
         if (null === $this->document->documentElement) {
-            throw new \LogicException('DOMDocument does not have root element');
+            throw new LogicException('DOMDocument does not have root element');
         }
         return $this->document->documentElement;
     }

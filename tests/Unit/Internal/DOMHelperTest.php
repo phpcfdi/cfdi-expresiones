@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\CfdiExpresiones\Tests\Unit\Internal;
 
 use DOMDocument;
+use LogicException;
 use PhpCfdi\CfdiExpresiones\Exceptions\AttributeNotFoundException;
 use PhpCfdi\CfdiExpresiones\Exceptions\ElementNotFoundException;
 use PhpCfdi\CfdiExpresiones\Internal\DOMHelper;
@@ -16,7 +17,7 @@ class DOMHelperTest extends TestCase
     {
         $document = new DOMDocument();
         $helper = new DOMHelper($document);
-        $this->expectException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $helper->rootElement();
     }
 
