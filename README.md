@@ -73,7 +73,7 @@ $values = $extractor->obtain($document);
 Esta librería se mantendrá compatible con al menos la versión con
 [soporte activo de PHP](https://www.php.net/supported-versions.php) más reciente.
 
-También utilizamos [Versionado Semántico 2.0.0](https://semver.org/lang/es/) por lo que puedes usar esta librería
+También utilizamos [Versionado Semántico 2.0.0](docs/SEMVER.md) por lo que puedes usar esta librería
 sin temor a romper tu aplicación.
 
 ### Cambiar de la versión 2.0.0 a la versión 3.0.0
@@ -84,11 +84,11 @@ versión mayor. Puedes actualizar con confianza si no creaste alguna clase que i
 ## Contribuciones
 
 Las contribuciones con bienvenidas. Por favor lee [CONTRIBUTING][] para más detalles
-y recuerda revisar el archivo de tareas pendientes [TODO][] y el [CHANGELOG][].
+y recuerda revisar el archivo de tareas pendientes [TODO][] y el archivo [CHANGELOG][].
 
 ## Copyright and License
 
-The phpcfdi/cfdi-expresiones library is copyright © [PhpCfdi](https://www.phpcfdi.com/)
+The `phpcfdi/cfdi-expresiones` library is copyright © [PhpCfdi](https://www.phpcfdi.com/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
 
 [contributing]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/CONTRIBUTING.md
