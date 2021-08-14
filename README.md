@@ -98,7 +98,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [source]: https://github.com/phpcfdi/cfdi-expresiones
 [release]: https://github.com/phpcfdi/cfdi-expresiones/releases
 [license]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/LICENSE
-[build]: https://travis-ci.com/phpcfdi/cfdi-expresiones?branch=master
+[build]: https://github.com/phpcfdi/cfdi-expresiones/actions/workflows/build.yml?query=branch:master
 [quality]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/
 [coverage]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/code-structure/master/code-coverage
 [downloads]: https://packagist.org/packages/phpcfdi/cfdi-expresiones
@@ -106,7 +106,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [badge-source]: https://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?style=flat-square
 [badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/phpcfdi/cfdi-expresiones.svg?style=flat-square
-[badge-build]: https://img.shields.io/travis/com/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
+[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/cfdi-expresiones/build/master?style=flat-square
 [badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
 [badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/cfdi-expresiones.svg?style=flat-square

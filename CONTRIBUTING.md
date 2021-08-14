@@ -1,13 +1,13 @@
 # Contribuciones
 
-Las contribuciones son bienvenidas. Aceptamos *Pull Requests* en el [repositorio GitHub][homepage].
+Las contribuciones son bienvenidas. Aceptamos *Pull Requests* en [el repositorio GitHub][homepage].
 
 Este proyecto se apega al siguiente [Código de Conducta][coc].
 Al participar en este proyecto y en su comunidad, deberás seguir este código.
 
 ## Miembros del equipo
 
-* [phpCfdi][] - Organización que mantiene el proyecto.
+* [phpCfdi][] — Organización que mantiene el proyecto.
 * [Contribuidores][contributors].
 
 ## Canales de comunicación
@@ -50,14 +50,14 @@ o la forma de desarrollarlas puede que no estén alineadas con el proyecto.
 Considera las siguientes directrices:
 
 * Usa una rama única que se desprenda de la rama principal.
-  No mezcles dos diferentes funcionalidades en una misma rama o *Pull Request*.
+* No mezcles dos diferentes funcionalidades en una misma rama o *Pull Request*.
 * Describe claramente y en detalle los cambios que hiciste.
 * **Escribe pruebas** para la funcionalidad que deseas agregar.
-* **Asegúrate que las pruebas pasan** antes de enviar tu contribución.
-  Usamos integración contínua donde se hace esta verificación, pero es mucho mejor si lo pruebas localmente.
+* **Asegúrate que las pruebas pasan** antes de enviar tu contribución. Usamos integración contínua
+  donde se hace esta verificación, pero es mucho mejor si lo pruebas localmente.
 * Intenta enviar una historia coherente, entenderemos cómo cambia el código si los *commits* tienen significado.
 * La documentación es parte del proyecto.
-  Realiza los cambios en los archivos de ayuda para que reflejen los cambios en el código.
+* Realiza los cambios en los archivos de ayuda para que reflejen los cambios en el código.
 
 ## Proceso de construcción
 
@@ -74,8 +74,18 @@ composer dev:fix-style
 # Ejecución de pruebas
 composer dev:test
 
-# Ejecución todo en uno, corregir estilo, verificar estilo y correr pruebas
+# Ejecución todo en uno: corregir estilo, verificar estilo y correr pruebas
 composer dev:build
+```
+
+## Ejecutar GitHub Actions localmente
+
+Puedes usar [`act`](https://github.com/nektos/act) para ejecutar GitHub Actions localmente, tal como se
+muestra en [`actions/setup-php-action`](https://github.com/marketplace/actions/setup-php-action#local-testing-setup)
+se podría ejecutar el siguiente comando:
+
+```shell
+act -P ubuntu-latest=shivammathur/node:latest
 ```
 
 [phpCfdi]:      https://github.com/phpcfdi/
