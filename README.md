@@ -68,7 +68,7 @@ $expression = $extractor->extract($document);
 $values = $extractor->obtain($document);
 ```
 
-## Compatilibilidad
+## Compatibilidad
 
 Esta librería se mantendrá compatible con al menos la versión con
 [soporte activo de PHP](https://www.php.net/supported-versions.php) más reciente.
