@@ -82,7 +82,7 @@ composer dev:build
 
 Puedes usar [`act`](https://github.com/nektos/act) para ejecutar GitHub Actions localmente, tal como se
 muestra en [`actions/setup-php-action`](https://github.com/marketplace/actions/setup-php-action#local-testing-setup)
-se podría ejecutar el siguiente comando:
+puedes ejecutar el siguiente comando:
 
 ```shell
 act -P ubuntu-latest=shivammathur/node:latest
@@ -91,5 +91,5 @@ act -P ubuntu-latest=shivammathur/node:latest
 [phpCfdi]:      https://github.com/phpcfdi/
 [project]:      https://github.com/phpcfdi/cfdi-expresiones
 [contributors]: https://github.com/phpcfdi/cfdi-expresiones/graphs/contributors
-[coc]:          https://github.com/phpcfdi/cfdi-expresiones/blob/master/CODE_OF_CONDUCT.md
+[coc]:          https://github.com/phpcfdi/cfdi-expresiones/blob/main/CODE_OF_CONDUCT.md
 [issues]:       https://github.com/phpcfdi/cfdi-expresiones/issues

@@ -1,9 +1,9 @@
 name: build
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   push:
-    branches: [ master ]
+    branches: [ main ]
   schedule:
     - cron: '0 16 * * 0' # sunday 16:00
 
@@ -63,14 +63,14 @@ jobs:
           cli-args: "--format=php-clover build/coverage-clover.xml"
         continue-on-error: true
 
-  build:
+  build: # this job runs tests on all php supported versions
 
     name: PHP ${{ matrix.php-versions }}
     runs-on: "ubuntu-latest"
 
     strategy:
       matrix:
-        php-versions: ['7.2', '7.3', '7.4', '8.0']
+        php-versions: ['7.3', '7.4', '8.0']
 
     steps:
 

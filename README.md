@@ -91,22 +91,22 @@ y recuerda revisar el archivo de tareas pendientes [TODO][] y el archivo [CHANGE
 The `phpcfdi/cfdi-expresiones` library is copyright © [PhpCfdi](https://www.phpcfdi.com/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
 
-[contributing]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/CONTRIBUTING.md
-[changelog]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/docs/CHANGELOG.md
-[todo]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/docs/TODO.md
+[contributing]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/CONTRIBUTING.md
+[changelog]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/docs/CHANGELOG.md
+[todo]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/docs/TODO.md
 
 [source]: https://github.com/phpcfdi/cfdi-expresiones
 [release]: https://github.com/phpcfdi/cfdi-expresiones/releases
-[license]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/LICENSE
-[build]: https://github.com/phpcfdi/cfdi-expresiones/actions/workflows/build.yml?query=branch:master
+[license]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/LICENSE
+[build]: https://github.com/phpcfdi/cfdi-expresiones/actions/workflows/build.yml?query=branch:main
 [quality]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/
-[coverage]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/code-structure/master/code-coverage
+[coverage]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/code-structure/main/code-coverage
 [downloads]: https://packagist.org/packages/phpcfdi/cfdi-expresiones
 
 [badge-source]: https://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?style=flat-square
 [badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/phpcfdi/cfdi-expresiones.svg?style=flat-square
-[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/cfdi-expresiones/build/master?style=flat-square
-[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
+[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/cfdi-expresiones/build/main?style=flat-square
+[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/cfdi-expresiones/main.svg?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/cfdi-expresiones/main.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/cfdi-expresiones.svg?style=flat-square
