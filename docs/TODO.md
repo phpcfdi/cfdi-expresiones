@@ -2,7 +2,7 @@
 
 ## Pendientes
 
-*Describa aquí el un nivel 3 una tarea pendiente.*
+*Describa aquí en un nivel 3 una tarea pendiente.*
 
 ## Hechas
 
