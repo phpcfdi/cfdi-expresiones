@@ -64,6 +64,7 @@ Considera las siguientes directrices:
 ```shell
 # Actualiza tus dependencias
 composer update
+phive update
 
 # Verificación de estilo de código
 composer dev:check-style
