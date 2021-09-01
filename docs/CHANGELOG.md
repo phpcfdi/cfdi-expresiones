@@ -11,6 +11,13 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 
 ## Listado de cambios
 
+### UNRELEASED 2021-08-31
+
+- Bump to PHP 7.3
+- Bump to PHPUnit 9.5
+- Actualización del entorno de desarrollo.
+- Migration from Travis-CI to GitHub Actions, thanks a lot Travis!
+
 ### UNRELEASED 2021-01-11
 
 Ninguno de estos cambios introducen alguna modificación en el código, solo en las pruebas y en el entorno de desarrollo.
@@ -40,7 +47,7 @@ You should not have any trouble upgrading to from version `2.0.0` to `3.0.0` unl
 class that implements `ExpressionExtractorInterface`. 
 
 - [BC] Change interface of `ExpressionExtractorInterface` to add a new method `obtain(DOMDocument $document): array`
-  that returns the extracted values, this change remove this responsability from `extract` method.
+  that returns the extracted values, this change remove this responsibility from `extract` method.
 - [BC] Change `DiscoverExtractor::format()`, second argument must be `string`, was `mixed`.
 - Update continuous integration and development environment, mayor changes:
     - Travis builds on PHP version `7.4snapshot`.

@@ -10,7 +10,7 @@
 
 > Genera expresiones de CFDI 3.3, CFDI 3.2 y RET 1.0
 
-:us: The documentation of this project is in spanish as this is the natural language for intented audience.
+:us: The documentation of this project is in spanish as this is the natural language for intended audience.
 
 :mexico: La documentación del proyecto está en español porque ese es el lenguaje principal de los usuarios.
 
