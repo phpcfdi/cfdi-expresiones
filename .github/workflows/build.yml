@@ -26,7 +26,7 @@ jobs:
           php-version: '8.0'
           extensions: dom
           coverage: xdebug
-          tools: composer:v2, cs2pr
+          tools: composer:v2, phpcs, php-cs-fixer, phpstan, cs2pr
         env:
           fail-fast: true
 
@@ -45,16 +45,16 @@ jobs:
         run: composer upgrade --no-interaction --no-progress --prefer-dist
 
       - name: Code style (phpcs)
-        run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
+        run: phpcs -q --report=checkstyle | cs2pr
 
       - name: Code style (php-cs-fixer)
-        run: vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
+        run: php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 
       - name: Tests (phpunit with code coverage)
         run: vendor/bin/phpunit --testdox --verbose --coverage-clover=build/coverage-clover.xml
 
       - name: Code analysis (phpstan)
-        run: vendor/bin/phpstan analyse --no-progress --verbose
+        run: phpstan analyse --no-progress --verbose
 
       # see https://github.com/marketplace/actions/action-scrutinizer
       - name: Upload code coverage to scrutinizer
