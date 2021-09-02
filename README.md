@@ -10,7 +10,7 @@
 
 > Genera expresiones de CFDI 3.3, CFDI 3.2 y RET 1.0
 
-:us: The documentation of this project is in spanish as this is the natural language for intented audience.
+:us: The documentation of this project is in spanish as this is the natural language for intended audience.
 
 :mexico: La documentación del proyecto está en español porque ese es el lenguaje principal de los usuarios.
 
@@ -64,11 +64,18 @@ $document->load('archivo-cfdi.xml');
 // obtenemos la expresión
 $expression = $extractor->extract($document);
 
-// y también podemos obtener los valores inviduales
+// y también podemos obtener los valores individuales
 $values = $extractor->obtain($document);
 ```
 
-## Compatilibilidad
+## Soporte
+
+Puedes obtener soporte abriendo un ticket en Github.
+
+Adicionalmente, esta librería pertenece a la comunidad [PhpCfdi](https://www.phpcfdi.com), así que puedes usar los
+mismos canales de comunicación para obtener ayuda de algún miembro de la comunidad.
+
+## Compatibilidad
 
 Esta librería se mantendrá compatible con al menos la versión con
 [soporte activo de PHP](https://www.php.net/supported-versions.php) más reciente.
@@ -91,22 +98,22 @@ y recuerda revisar el archivo de tareas pendientes [TODO][] y el archivo [CHANGE
 The `phpcfdi/cfdi-expresiones` library is copyright © [PhpCfdi](https://www.phpcfdi.com/)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
 
-[contributing]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/CONTRIBUTING.md
-[changelog]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/docs/CHANGELOG.md
-[todo]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/docs/TODO.md
+[contributing]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/CONTRIBUTING.md
+[changelog]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/docs/CHANGELOG.md
+[todo]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/docs/TODO.md
 
 [source]: https://github.com/phpcfdi/cfdi-expresiones
 [release]: https://github.com/phpcfdi/cfdi-expresiones/releases
-[license]: https://github.com/phpcfdi/cfdi-expresiones/blob/master/LICENSE
-[build]: https://travis-ci.com/phpcfdi/cfdi-expresiones?branch=master
+[license]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/LICENSE
+[build]: https://github.com/phpcfdi/cfdi-expresiones/actions/workflows/build.yml?query=branch:main
 [quality]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/
-[coverage]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/code-structure/master/code-coverage
+[coverage]: https://scrutinizer-ci.com/g/phpcfdi/cfdi-expresiones/code-structure/main/code-coverage
 [downloads]: https://packagist.org/packages/phpcfdi/cfdi-expresiones
 
 [badge-source]: https://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?style=flat-square
 [badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg?style=flat-square
 [badge-license]: https://img.shields.io/github/license/phpcfdi/cfdi-expresiones.svg?style=flat-square
-[badge-build]: https://img.shields.io/travis/com/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
-[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/cfdi-expresiones/master.svg?style=flat-square
+[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/cfdi-expresiones/build/main?style=flat-square
+[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/cfdi-expresiones/main.svg?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/cfdi-expresiones/main.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/cfdi-expresiones.svg?style=flat-square

@@ -6,10 +6,17 @@ Usamos [Versionado Semántico 2.0.0](SEMVER.md) por lo que puedes usar esta libr
 
 ## Cambios no liberados en una versión
 
-Pueden aparecer cambios no liberados que se integran a la rama principal pero no ameritan una nueva liberación de
-versión aunque sí su incorporación en la rama principal de trabajo, generalmente se tratan de cambios en el desarrollo.
+Pueden aparecer cambios no liberados que se integran a la rama principal, pero no ameritan una nueva liberación de
+versión, aunque sí su incorporación en la rama principal de trabajo, generalmente se tratan de cambios en el desarrollo.
 
 ## Listado de cambios
+
+### UNRELEASED 2021-09-01
+
+- La nueva versión mínima de PHP 7.3.
+- La nueva versión mínima de PHPUnit es 9.5.
+- Actualización del entorno de desarrollo.
+- Migración de Travis-CI a GitHub Workflows. ¡Muchas gracias Travis!
 
 ### UNRELEASED 2021-01-11
 
@@ -40,7 +47,7 @@ You should not have any trouble upgrading to from version `2.0.0` to `3.0.0` unl
 class that implements `ExpressionExtractorInterface`. 
 
 - [BC] Change interface of `ExpressionExtractorInterface` to add a new method `obtain(DOMDocument $document): array`
-  that returns the extracted values, this change remove this responsability from `extract` method.
+  that returns the extracted values, this change remove this responsibility from `extract` method.
 - [BC] Change `DiscoverExtractor::format()`, second argument must be `string`, was `mixed`.
 - Update continuous integration and development environment, mayor changes:
     - Travis builds on PHP version `7.4snapshot`.
