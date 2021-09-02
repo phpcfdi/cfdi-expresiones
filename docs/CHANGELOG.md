@@ -11,12 +11,12 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 
 ## Listado de cambios
 
-### UNRELEASED 2021-08-31
+### UNRELEASED 2021-09-01
 
-- Bump to PHP 7.3
-- Bump to PHPUnit 9.5
+- La nueva versión mínima de PHP 7.3.
+- La nueva versión mínima de PHPUnit es 9.5.
 - Actualización del entorno de desarrollo.
-- Migration from Travis-CI to GitHub Actions, thanks a lot Travis!
+- Migración de Travis-CI a GitHub Workflows. ¡Muchas gracias Travis!
 
 ### UNRELEASED 2021-01-11
 
