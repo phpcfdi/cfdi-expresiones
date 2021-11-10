@@ -24,7 +24,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
-          extensions: dom
           coverage: xdebug
           tools: composer:v2, phpcs, php-cs-fixer, phpstan, cs2pr
         env:
@@ -82,7 +81,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: dom
           coverage: none
           tools: composer:v2, cs2pr
         env:
