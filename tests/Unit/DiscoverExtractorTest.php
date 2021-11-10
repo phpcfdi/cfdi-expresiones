@@ -41,7 +41,7 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
         $extrator->extract($document);
     }
 
-    /** @return array<string, array> */
+    /** @return array<string, array{DOMDocument, string}> */
     public function providerExpressionOnValidDocuments(): array
     {
         return [
