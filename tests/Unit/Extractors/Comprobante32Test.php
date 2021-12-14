@@ -67,4 +67,22 @@ class Comprobante32Test extends DOMDocumentsTestCase
         $extractor = new Comprobante32();
         $this->assertSame($expectedFormat, $extractor->formatTotal($input));
     }
+
+    public function testFormatCfdi32RfcWithAmpersand(): void
+    {
+        $extractor = new Comprobante32();
+        $expected32 = implode([
+            '?re=Ñ&amp;A010101AAA',
+            '&rr=Ñ&amp;A991231AA0',
+            '&tt=0000001234.567800',
+            '&id=CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC',
+        ]);
+        $parameters = [
+            're' => 'Ñ&A010101AAA',
+            'rr' => 'Ñ&A991231AA0',
+            'tt' => '1234.5678',
+            'id' => 'CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC',
+        ];
+        $this->assertSame($expected32, $extractor->format($parameters));
+    }
 }

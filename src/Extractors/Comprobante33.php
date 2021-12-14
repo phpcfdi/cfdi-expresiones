@@ -62,8 +62,8 @@ class Comprobante33 implements ExpressionExtractorInterface
         return 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?'
             . implode('&', [
                 'id=' . ($values['id'] ?? ''),
-                're=' . ($values['re'] ?? ''),
-                'rr=' . ($values['rr'] ?? ''),
+                're=' . (htmlentities($values['re'] ?? '', ENT_XML1)),
+                'rr=' . (htmlentities($values['rr'] ?? '', ENT_XML1)),
                 'tt=' . $this->formatTotal($values['tt'] ?? ''),
                 'fe=' . ($values['fe'] ?? ''),
             ]);
