@@ -103,8 +103,8 @@ class Retenciones10 implements ExpressionExtractorInterface
         }
         return '?'
             . implode('&', [
-                're=' . ($values['re'] ?? ''),
-                $receptorKey . '=' . ($values[$receptorKey] ?? ''),
+                're=' . (htmlentities($values['re'] ?? '', ENT_XML1)),
+                $receptorKey . '=' . (htmlentities($values[$receptorKey] ?? '', ENT_XML1)),
                 'tt=' . $this->formatTotal($values['tt'] ?? ''),
                 'id=' . ($values['id'] ?? ''),
             ]);

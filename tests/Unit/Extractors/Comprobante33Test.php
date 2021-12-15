@@ -65,4 +65,25 @@ class Comprobante33Test extends DOMDocumentsTestCase
         $extractor = new Comprobante33();
         $this->assertSame($expectedFormat, $extractor->formatTotal($input));
     }
+
+    public function testFormatCfdi33RfcWithAmpersand(): void
+    {
+        $extractor = new Comprobante33();
+        $expected33 = implode([
+            'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx',
+            '?id=CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC',
+            '&re=Ñ&amp;A010101AAA',
+            '&rr=Ñ&amp;A991231AA0',
+            '&tt=1234.5678',
+            '&fe=23456789',
+        ]);
+        $parameters = [
+            'id' => 'CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC',
+            're' => 'Ñ&A010101AAA',
+            'rr' => 'Ñ&A991231AA0',
+            'tt' => '1234.5678',
+            'fe' => '23456789',
+        ];
+        $this->assertSame($expected33, $extractor->format($parameters));
+    }
 }

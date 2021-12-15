@@ -88,4 +88,22 @@ class Retenciones10Test extends DOMDocumentsTestCase
         $extractor = new Retenciones10();
         $this->assertSame($expectedFormat, $extractor->formatTotal($input));
     }
+
+    public function testFormatRetenciones10RfcWithAmpersand(): void
+    {
+        $extractor = new Retenciones10();
+        $expectedRetenciones10 = implode([
+            '?re=Ñ&amp;A010101AAA',
+            '&rr=Ñ&amp;A991231AA0',
+            '&tt=0002000000.000000',
+            '&id=fc1b47b2-42f3-4ca2-8587-36e0a216c4d5',
+        ]);
+        $parameters = [
+            're' => 'Ñ&A010101AAA',
+            'rr' => 'Ñ&A991231AA0',
+            'tt' => '2000000.00',
+            'id' => 'fc1b47b2-42f3-4ca2-8587-36e0a216c4d5',
+        ];
+        $this->assertSame($expectedRetenciones10, $extractor->format($parameters));
+    }
 }
