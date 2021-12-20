@@ -41,7 +41,7 @@ class Comprobante33 implements ExpressionExtractorInterface
         $rfcEmisor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Emisor', 'Rfc');
         $rfcReceptor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Receptor', 'Rfc');
         $total = $helper->getAttribute('cfdi:Comprobante', 'Total');
-        $sello = substr($helper->getAttribute('cfdi:Comprobante', 'Sello'), -8);
+        $sello = $this->formatSello($helper->getAttribute('cfdi:Comprobante', 'Sello'));
 
         return [
             'id' => $uuid,
@@ -62,19 +62,29 @@ class Comprobante33 implements ExpressionExtractorInterface
         return 'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?'
             . implode('&', [
                 'id=' . ($values['id'] ?? ''),
-                're=' . (htmlentities($values['re'] ?? '', ENT_XML1)),
-                'rr=' . (htmlentities($values['rr'] ?? '', ENT_XML1)),
+                're=' . $this->formatRfc($values['re'] ?? ''),
+                'rr=' . $this->formatRfc($values['rr'] ?? ''),
                 'tt=' . $this->formatTotal($values['tt'] ?? ''),
-                'fe=' . ($values['fe'] ?? ''),
+                'fe=' . $this->formatSello($values['fe'] ?? ''),
             ]);
+    }
+
+    public function formatRfc(string $rfc): string
+    {
+        return htmlentities($rfc, ENT_XML1);
     }
 
     public function formatTotal(string $input): string
     {
         $total = rtrim(number_format(floatval($input), 6, '.', ''), '0');
-        if ('.' === substr($total, -1, 1)) {
+        if ('.' === substr($total, -1)) {
             $total = $total . '0'; // add trailing zero
         }
         return $total;
+    }
+
+    public function formatSello(string $sello): string
+    {
+        return substr($sello, -8);
     }
 }

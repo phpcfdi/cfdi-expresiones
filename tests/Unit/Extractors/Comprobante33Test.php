@@ -66,10 +66,10 @@ class Comprobante33Test extends DOMDocumentsTestCase
         $this->assertSame($expectedFormat, $extractor->formatTotal($input));
     }
 
-    public function testFormatCfdi33RfcWithAmpersand(): void
+    public function testFormatUsesFormatting(): void
     {
         $extractor = new Comprobante33();
-        $expected33 = implode([
+        $expected33 = implode('', [
             'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx',
             '?id=CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC',
             '&re=Ñ&amp;A010101AAA',
@@ -82,8 +82,25 @@ class Comprobante33Test extends DOMDocumentsTestCase
             're' => 'Ñ&A010101AAA',
             'rr' => 'Ñ&A991231AA0',
             'tt' => '1234.5678',
-            'fe' => '23456789',
+            'fe' => 'xxx23456789',
         ];
         $this->assertSame($expected33, $extractor->format($parameters));
+    }
+
+    public function testFormatRfcAmpersandOrTilde(): void
+    {
+        $extractor = new Comprobante33();
+        $this->assertSame('ÑA&amp;A010101AA1', $extractor->formatRfc('ÑA&A010101AA1'));
+    }
+
+    /**
+     * @testWith ["12345678", "12345678"]
+     *           ["xxx12345678", "12345678"]
+     *           ["1234", "1234"]
+     */
+    public function testFormatSelloTakesOnlyTheLastEightChars(string $input, string $expected): void
+    {
+        $extractor = new Comprobante33();
+        $this->assertSame($expected, $extractor->formatSello($input));
     }
 }

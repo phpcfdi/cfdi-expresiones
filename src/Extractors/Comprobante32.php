@@ -59,11 +59,16 @@ class Comprobante32 implements ExpressionExtractorInterface
     {
         return '?'
             . implode('&', [
-                're=' . (htmlentities($values['re'] ?? '', ENT_XML1)),
-                'rr=' . (htmlentities($values['rr'] ?? '', ENT_XML1)),
+                're=' . $this->formatRfc($values['re'] ?? ''),
+                'rr=' . $this->formatRfc($values['rr'] ?? ''),
                 'tt=' . $this->formatTotal($values['tt'] ?? ''),
                 'id=' . ($values['id'] ?? ''),
             ]);
+    }
+
+    public function formatRfc(string $rfc): string
+    {
+        return htmlentities($rfc, ENT_XML1);
     }
 
     public function formatTotal(string $input): string
