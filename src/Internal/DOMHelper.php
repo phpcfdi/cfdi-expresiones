@@ -91,8 +91,11 @@ class DOMHelper
 
     public function findFirstChildByName(DOMElement $parent, string $name): ?DOMElement
     {
-        for ($children = $parent->firstChild; null !== $children; $children = $children->nextSibling) {
-            if ($children instanceof DOMElement && $name === $children->nodeName) {
+        foreach ($parent->childNodes as $children) {
+            if (! $children instanceof DOMElement) {
+                continue;
+            }
+            if ($name === $children->nodeName) {
                 return $children;
             }
         }

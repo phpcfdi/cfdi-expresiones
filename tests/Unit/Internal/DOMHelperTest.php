@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpCfdi\CfdiExpresiones\Tests\Unit\Internal;
 
 use DOMDocument;
+use DOMElement;
 use LogicException;
 use PhpCfdi\CfdiExpresiones\Exceptions\AttributeNotFoundException;
 use PhpCfdi\CfdiExpresiones\Exceptions\ElementNotFoundException;
@@ -72,6 +73,33 @@ class DOMHelperTest extends TestCase
             $this->fail('Expected to exists element was not found');
         }
         $this->assertSame('Carlos C Soto', $element->getAttribute('author'));
+    }
+
+    public function testfindFirstChildByName(): void
+    {
+        $document = new DOMDocument();
+        $helper = new DOMHelper($document);
+        $document->loadXML(
+            <<<XML
+                    <r:root xmlns:r="http://tempuri.org/r">
+                        <!-- children -->
+                        <r:child id="1"/>
+                        <r:child id="2"/>
+                    </r:root>
+                XML
+        );
+        /** @var DOMElement $root */
+        $root = $document->documentElement;
+
+        // check element is found
+        $element = $helper->findFirstChildByName($root, 'r:child');
+        if (null === $element) {
+            $this->fail('Expected to exists element was not found');
+        }
+        $this->assertSame('1', $element->getAttribute('id'));
+
+        // check comment is not found (even when exists and nodeName match)
+        $this->assertNull($helper->findFirstChildByName($root, '#comment'));
     }
 
     public function testGettingInDepth(): void
