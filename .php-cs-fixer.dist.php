@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
-    ->setCacheFile(__DIR__ . '/build/php_cs.cache')
+    ->setCacheFile(__DIR__ . '/build/php-cs-fixer.cache')
     ->setRules([
         '@PSR12' => true,
         '@PSR12:risky' => true,
