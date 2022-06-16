@@ -43,16 +43,25 @@ class Retenciones10Test extends DOMDocumentsTestCase
         $this->assertSame($expectedExpression, $extractor->extract($document));
     }
 
-    public function testNotMatchesCfdi33(): void
+    /** @return array<string, array{DOMDocument}> */
+    public function providerCfdiDifferentVersions(): array
     {
-        $document = $this->documentCfdi33();
+        return [
+            'CFDI 4.0' => [$this->documentCfdi40()],
+            'CFDI 3.3' => [$this->documentCfdi33()],
+        ];
+    }
+
+    /** @dataProvider providerCfdiDifferentVersions */
+    public function testNotMatchesCfdi(DOMDocument $document): void
+    {
         $extractor = new Retenciones10();
         $this->assertFalse($extractor->matches($document));
     }
 
-    public function testExtractNotMatchesThrowException(): void
+    /** @dataProvider providerCfdiDifferentVersions */
+    public function testExtractNotMatchesThrowException(DOMDocument $document): void
     {
-        $document = $this->documentCfdi33();
         $extractor = new Retenciones10();
         $this->expectException(UnmatchedDocumentException::class);
         $this->expectExceptionMessage('The document is not a RET 1.0');

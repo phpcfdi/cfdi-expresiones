@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\CfdiExpresiones\Tests\Unit\Extractors;
 
+use DOMDocument;
 use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante32;
 use PhpCfdi\CfdiExpresiones\Tests\Unit\DOMDocumentsTestCase;
@@ -32,16 +33,25 @@ class Comprobante32Test extends DOMDocumentsTestCase
         $this->assertSame($expectedExpression, $extractor->extract($document));
     }
 
-    public function testNotMatchesCfdi33(): void
+    /** @return array<string, array{DOMDocument}> */
+    public function providerCfdiDifferentVersions(): array
     {
-        $document = $this->documentCfdi33();
+        return [
+            'CFDI 4.0' => [$this->documentCfdi40()],
+            'CFDI 3.3' => [$this->documentCfdi33()],
+        ];
+    }
+
+    /** @dataProvider providerCfdiDifferentVersions */
+    public function testNotMatchesCfdi(DOMDocument $document): void
+    {
         $extractor = new Comprobante32();
         $this->assertFalse($extractor->matches($document));
     }
 
-    public function testExtractNotMatchesThrowException(): void
+    /** @dataProvider providerCfdiDifferentVersions */
+    public function testExtractNotMatchesThrowException(DOMDocument $document): void
     {
-        $document = $this->documentCfdi33();
         $extractor = new Comprobante32();
         $this->expectException(UnmatchedDocumentException::class);
         $this->expectExceptionMessage('The document is not a CFDI 3.2');

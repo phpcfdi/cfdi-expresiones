@@ -10,6 +10,7 @@ use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
 use PhpCfdi\CfdiExpresiones\ExpressionExtractorInterface;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante32;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante33;
+use PhpCfdi\CfdiExpresiones\Extractors\Comprobante40;
 use PhpCfdi\CfdiExpresiones\Extractors\Retenciones10;
 
 class DiscoverExtractorTest extends DOMDocumentsTestCase
@@ -35,7 +36,8 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
         $this->assertContains(Retenciones10::class, $extractorClasses);
         $this->assertContains(Comprobante32::class, $extractorClasses);
         $this->assertContains(Comprobante33::class, $extractorClasses);
-        $this->assertCount(3, $extractorClasses);
+        $this->assertContains(Comprobante40::class, $extractorClasses);
+        $this->assertCount(4, $extractorClasses);
     }
 
     public function testDontMatchUsingEmptyDocument(): void
@@ -58,6 +60,7 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
     public function providerExpressionOnValidDocuments(): array
     {
         return [
+            'Cfdi40' => [$this->documentCfdi40(), 'CFDI40'],
             'Cfdi33' => [$this->documentCfdi33(), 'CFDI33'],
             'Cfdi32' => [$this->documentCfdi32(), 'CFDI32'],
             'Ret10Mexican' => [$this->documentRet10Mexican(), 'RET10'],

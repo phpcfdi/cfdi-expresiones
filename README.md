@@ -8,13 +8,13 @@
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
-> Genera expresiones de CFDI 3.3, CFDI 3.2 y RET 1.0
+> Genera expresiones de CFDI 4.4, CFDI 3.3, CFDI 3.2 y RET 1.0
 
 :us: The documentation of this project is in spanish as this is the natural language for intended audience.
 
 :mexico: La documentación del proyecto está en español porque ese es el lenguaje principal de los usuarios.
 
-Esta librería contiene objetos de ayuda para crear expresiones de CFDI 3.2, CFDI 3.3 y RET 1.0
+Esta librería contiene objetos de ayuda para crear expresiones de CFDI 3.2, CFDI 3.3, CFDI 3.4 y RET 1.0
 de acuerdo a la información técnica del SAT en el Anexo 20.
 
 Estas expresiones se utilizan principalmente para dos motivos:
@@ -22,7 +22,9 @@ Estas expresiones se utilizan principalmente para dos motivos:
 1. Generar el código QR de una representación impresa de un CFDI o RET.
 2. Consultar el WebService del SAT de estado de un CFDI.
 
-Ejemplo de expresión para CFDI 3.3:
+Ejemplo de expresión para CFDI 3.3 y CFDI 4.0:
+
+Estas especificaciones comparten el mismo estándar.
 
 ```text
 https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC&re=POT9207213D6&rr=DIM8701081LA&tt=2010.01&fe=/OAgdg==
