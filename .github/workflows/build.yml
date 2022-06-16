@@ -154,24 +154,6 @@ jobs:
           name: code-coverage
           path: build/coverage
 
-  scrutinizer:
-    name: Scrutinizer upload code coverage
-    needs: tests-coverage
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Obtain code coverage
-        uses: actions/download-artifact@v2
-        with:
-          name: code-coverage
-          path: build/coverage
-      - name: Upload code coverage to scrutinizer
-        uses: sudo-bot/action-scrutinizer@latest # see https://github.com/marketplace/actions/action-scrutinizer
-        with:
-          cli-args: "-vvv --format=php-clover build/coverage/clover.xml"
-        continue-on-error: true
-
   infection:
     name: Mutation testing analysis
     needs: tests-coverage
