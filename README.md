@@ -86,7 +86,7 @@ sin temor a romper tu aplicación.
 ### Cambiar de la versión 2.0.0 a la versión 3.0.0
 
 La versión `3.0.0` agrega un método a la interfaz `ExpressionExtractorInterface` por lo que es necesario crear una
-versión mayor. Puedes actualizar con confianza si no creaste alguna clase que implemente `ExpressionExtractorInterface`.
+versión mayor. Puedes actualizar con confianza si no generaste alguna clase que implemente `ExpressionExtractorInterface`.
 
 ## Contribuciones
 
