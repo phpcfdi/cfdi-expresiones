@@ -86,24 +86,6 @@ class Retenciones20Test extends DOMDocumentsTestCase
         $extractor->extract($document);
     }
 
-    /**
-     * @param string $input total cannot have more than 6 decimals as set in Anexo 20
-     * @param string $expectedFormat
-     * @testWith ["123.45", "123.45"]
-     *           ["0.123456", "0.123456"]
-     *           ["0.1234561", "0.123456"]
-     *           ["0.1234565", "0.123457"]
-     *           ["1000.00000", "1000.0"]
-     *           ["0", "0.0"]
-     *           ["0.00", "0.0"]
-     *           ["", "0.0"]
-     */
-    public function testHowTotalMustBeFormatted(string $input, string $expectedFormat): void
-    {
-        $extractor = new Retenciones20();
-        $this->assertSame($expectedFormat, $extractor->formatTotal($input));
-    }
-
     public function testFormatMexican(): void
     {
         $extractor = new Retenciones20();
@@ -140,24 +122,5 @@ class Retenciones20Test extends DOMDocumentsTestCase
             'fe' => '...qsIe6w==',
         ];
         $this->assertSame($expected, $extractor->format($parameters));
-    }
-
-    public function testFormatRfcAmpersandOrTilde(): void
-    {
-        $extractor = new Retenciones20();
-        $this->assertSame('ÑA&amp;A010101AA1', $extractor->formatRfc('ÑA&A010101AA1'));
-    }
-
-    /**
-     * @testWith ["X", "0000000000000000000X"]
-     *           ["12345678901234567890", "12345678901234567890"]
-     *           ["12345678901234567890_1234", "12345678901234567890"]
-     *           ["ÑÑÑ", "00000000000000000ÑÑÑ"]
-     *           ["A&Z", "0000000000000A&amp;Z"]
-     */
-    public function testFormatForeignTaxId(string $input, string $expected): void
-    {
-        $extractor = new Retenciones20();
-        $this->assertSame($expected, $extractor->formatForeignTaxId($input));
     }
 }

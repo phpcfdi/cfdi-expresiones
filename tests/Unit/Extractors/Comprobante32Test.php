@@ -58,26 +58,6 @@ class Comprobante32Test extends DOMDocumentsTestCase
         $extractor->extract($document);
     }
 
-    /**
-     * CFDI 3.2 total must be 6 decimals and 17 total length zero padding on left
-     *
-     * @param string $input total cannot have more than 6 decimals as set in Anexo 20
-     * @param string $expectedFormat
-     * @testWith ["123.45",     "0000000123.450000"]
-     *           ["0.123456",   "0000000000.123456"]
-     *           ["0.1234561",  "0000000000.123456"]
-     *           ["0.1234565",  "0000000000.123457"]
-     *           ["1000.00000", "0000001000.000000"]
-     *           ["0", "0000000000.000000"]
-     *           ["0.00", "0000000000.000000"]
-     *           ["", "0000000000.000000"]
-     */
-    public function testHowTotalMustBeFormatted(string $input, string $expectedFormat): void
-    {
-        $extractor = new Comprobante32();
-        $this->assertSame($expectedFormat, $extractor->formatTotal($input));
-    }
-
     public function testFormatUsesFormatting(): void
     {
         $extractor = new Comprobante32();
@@ -94,11 +74,5 @@ class Comprobante32Test extends DOMDocumentsTestCase
             'id' => 'CEE4BE01-ADFA-4DEB-8421-ADD60F0BEDAC',
         ];
         $this->assertSame($expected32, $extractor->format($parameters));
-    }
-
-    public function testFormatRfcAmpersandOrTilde(): void
-    {
-        $extractor = new Comprobante32();
-        $this->assertSame('ÑA&amp;A010101AA1', $extractor->formatRfc('ÑA&A010101AA1'));
     }
 }

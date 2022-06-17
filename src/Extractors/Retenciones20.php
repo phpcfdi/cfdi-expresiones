@@ -13,6 +13,11 @@ use PhpCfdi\CfdiExpresiones\Internal\MatchDetector;
 
 class Retenciones20 implements ExpressionExtractorInterface
 {
+    use Standards\FormatForeignTaxId20;
+    use Standards\FormatRfcXml;
+    use Standards\FormatTotal18x6;
+    use Standards\FormatSelloLast8;
+
     /** @var MatchDetector */
     private $matchDetector;
 
@@ -52,34 +57,9 @@ class Retenciones20 implements ExpressionExtractorInterface
         );
 
         $rfcEmisor = $helper->getAttribute('retenciones:Retenciones', 'retenciones:Emisor', 'RfcE');
-
-        $rfcReceptorKey = 'rr';
-        $rfcReceptor = $helper->findAttribute(
-            'retenciones:Retenciones',
-            'retenciones:Receptor',
-            'retenciones:Nacional',
-            'RfcR'
-        );
-
-        if (null === $rfcReceptor) {
-            $rfcReceptorKey = 'nr';
-            $rfcReceptor = $helper->findAttribute(
-                'retenciones:Retenciones',
-                'retenciones:Receptor',
-                'retenciones:Extranjero',
-                'NumRegIdTribR'
-            );
-        }
-        if (null === $rfcReceptor) {
-            throw new AttributeNotFoundException('RET 2.0 receiver tax id cannot be found');
-        }
-        if ('nr' === $rfcReceptorKey) {
-            $rfcReceptor = $this->formatForeignTaxId($rfcReceptor);
-        }
-
+        [$rfcReceptorKey, $rfcReceptor] = $this->obtainReceptorValues($helper);
         $total = $helper->getAttribute('retenciones:Retenciones', 'retenciones:Totales', 'MontoTotOperacion');
-
-        $sello = (string) substr($helper->getAttribute('retenciones:Retenciones', 'Sello'), -8);
+        $sello = $helper->getAttribute('retenciones:Retenciones', 'Sello');
 
         return [
             'id' => $uuid,
@@ -115,33 +95,31 @@ class Retenciones20 implements ExpressionExtractorInterface
             ]);
     }
 
-    public function formatRfc(string $rfc): string
+    /** @return array{string, string} */
+    private function obtainReceptorValues(DOMHelper $helper): array
     {
-        return htmlentities($rfc, ENT_XML1);
-    }
+        $rfcReceptorKey = 'rr';
+        $rfcReceptor = $helper->findAttribute(
+            'retenciones:Retenciones',
+            'retenciones:Receptor',
+            'retenciones:Nacional',
+            'RfcR'
+        );
 
-    public function formatForeignTaxId(string $foreignTaxId): string
-    {
-        // codificar
-        $foreignTaxId = htmlentities($foreignTaxId, ENT_XML1);
-        // usar hasta un máximo de 20 posiciones
-        $foreignTaxId = mb_substr($foreignTaxId, 0, 20);
-        // crear un padding para establecer a 20 posiciones
-        $padding = str_repeat('0', max(0, 20 - mb_strlen($foreignTaxId)));
-        return $padding . $foreignTaxId;
-    }
-
-    public function formatTotal(string $input): string
-    {
-        $total = rtrim(number_format(floatval($input), 6, '.', ''), '0');
-        if ('.' === substr($total, -1)) {
-            $total = $total . '0'; // add trailing zero
+        if (null === $rfcReceptor) {
+            $rfcReceptorKey = 'nr';
+            $rfcReceptor = $helper->findAttribute(
+                'retenciones:Retenciones',
+                'retenciones:Receptor',
+                'retenciones:Extranjero',
+                'NumRegIdTribR'
+            );
         }
-        return $total;
-    }
 
-    public function formatSello(string $input): string
-    {
-        return substr($input, -8);
+        if (null === $rfcReceptor) {
+            throw new AttributeNotFoundException('RET 2.0 receiver tax id cannot be found');
+        }
+
+        return [$rfcReceptorKey, $rfcReceptor];
     }
 }

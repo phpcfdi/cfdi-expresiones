@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace PhpCfdi\CfdiExpresiones\Extractors;
 
 use PhpCfdi\CfdiExpresiones\ExpressionExtractorInterface;
+use PhpCfdi\CfdiExpresiones\Extractors\Standards\Comprobante20170701;
 use PhpCfdi\CfdiExpresiones\Internal\MatchDetector;
 
 /**
  * This class is using the CFDI Standard 2017-07-01. It's the same for CFDI 3.3 & 4.0.
  */
-class Comprobante33 extends CfdiStandard20170701 implements ExpressionExtractorInterface
+class Comprobante33 extends Comprobante20170701 implements ExpressionExtractorInterface
 {
     public function __construct()
     {

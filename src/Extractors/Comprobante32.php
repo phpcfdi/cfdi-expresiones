@@ -12,6 +12,9 @@ use PhpCfdi\CfdiExpresiones\Internal\MatchDetector;
 
 class Comprobante32 implements ExpressionExtractorInterface
 {
+    use Standards\FormatRfcXml;
+    use Standards\FormatTotal10x6;
+
     /** @var MatchDetector */
     private $matchDetector;
 
@@ -64,15 +67,5 @@ class Comprobante32 implements ExpressionExtractorInterface
                 'tt=' . $this->formatTotal($values['tt'] ?? ''),
                 'id=' . ($values['id'] ?? ''),
             ]);
-    }
-
-    public function formatRfc(string $rfc): string
-    {
-        return htmlentities($rfc, ENT_XML1);
-    }
-
-    public function formatTotal(string $input): string
-    {
-        return str_pad(number_format(floatval($input), 6, '.', ''), 17, '0', STR_PAD_LEFT);
     }
 }

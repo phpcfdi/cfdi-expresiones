@@ -78,26 +78,6 @@ class Retenciones10Test extends DOMDocumentsTestCase
         $extractor->extract($document);
     }
 
-    /**
-     * RET 1.0 total must be 6 decimals and 17 total length zero padding on left
-     *
-     * @param string $input total cannot have more than 6 decimals as set in Anexo 20
-     * @param string $expectedFormat
-     * @testWith ["123.45",     "0000000123.450000"]
-     *           ["0.123456",   "0000000000.123456"]
-     *           ["0.1234561",  "0000000000.123456"]
-     *           ["0.1234565",  "0000000000.123457"]
-     *           ["1000.00000", "0000001000.000000"]
-     *           ["0", "0000000000.000000"]
-     *           ["0.00", "0000000000.000000"]
-     *           ["", "0000000000.000000"]
-     */
-    public function testHowTotalMustBeFormatted(string $input, string $expectedFormat): void
-    {
-        $extractor = new Retenciones10();
-        $this->assertSame($expectedFormat, $extractor->formatTotal($input));
-    }
-
     public function testFormatMexican(): void
     {
         $extractor = new Retenciones10();
@@ -132,12 +112,6 @@ class Retenciones10Test extends DOMDocumentsTestCase
             'tt' => '12345.67',
         ];
         $this->assertSame($expected, $extractor->format($parameters));
-    }
-
-    public function testFormatRfcAmpersandOrTilde(): void
-    {
-        $extractor = new Retenciones10();
-        $this->assertSame('ÑA&amp;A010101AA1', $extractor->formatRfc('ÑA&A010101AA1'));
     }
 
     /**

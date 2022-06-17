@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\CfdiExpresiones\Extractors;
+namespace PhpCfdi\CfdiExpresiones\Extractors\Standards;
 
 use DOMDocument;
 use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
@@ -14,8 +14,12 @@ use PhpCfdi\CfdiExpresiones\Internal\MatchDetector;
  * Especificación técnica del código de barras bidimensional a incorporar en la representación impresa.
  * Esta versión se utiliza desde CFDI 3.3 vigente a partir de 2017-07-01.
  */
-abstract class CfdiStandard20170701 implements ExpressionExtractorInterface
+abstract class Comprobante20170701 implements ExpressionExtractorInterface
 {
+    use FormatRfcXml;
+    use FormatTotal18x6;
+    use FormatSelloLast8;
+
     /** @var MatchDetector */
     private $matchDetector;
 
@@ -44,7 +48,7 @@ abstract class CfdiStandard20170701 implements ExpressionExtractorInterface
         $rfcEmisor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Emisor', 'Rfc');
         $rfcReceptor = $helper->getAttribute('cfdi:Comprobante', 'cfdi:Receptor', 'Rfc');
         $total = $helper->getAttribute('cfdi:Comprobante', 'Total');
-        $sello = $this->formatSello($helper->getAttribute('cfdi:Comprobante', 'Sello'));
+        $sello = $helper->getAttribute('cfdi:Comprobante', 'Sello');
 
         return [
             'id' => $uuid,
@@ -70,24 +74,5 @@ abstract class CfdiStandard20170701 implements ExpressionExtractorInterface
                 'tt=' . $this->formatTotal($values['tt'] ?? ''),
                 'fe=' . $this->formatSello($values['fe'] ?? ''),
             ]);
-    }
-
-    public function formatRfc(string $rfc): string
-    {
-        return htmlentities($rfc, ENT_XML1);
-    }
-
-    public function formatTotal(string $input): string
-    {
-        $total = rtrim(number_format(floatval($input), 6, '.', ''), '0');
-        if ('.' === substr($total, -1)) {
-            $total = $total . '0'; // add trailing zero
-        }
-        return $total;
-    }
-
-    public function formatSello(string $sello): string
-    {
-        return substr($sello, -8);
     }
 }
