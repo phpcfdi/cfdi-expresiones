@@ -19,6 +19,14 @@ Se agrega el soporte de CFDI 4.0 con fundamento en el Anexo 20.
 Para ello, la *Especificación técnica del código de barras bidimensional a incorporar en la representación impresa*
 se separa a un estándar interno llamado `CfdiStandard20170701`
 
+#### Soporte de RET 2.0
+
+Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
+
+#### Refactorización de métodos compartidos
+
+Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
+
 #### Codificación de caracteres especiales
 
 Se corrige el problema encontrado al formar expresiones en la codificación de los valores de las expresiones,
@@ -37,6 +45,7 @@ Se actualiza el año del archivo de licencia.
 
 Se actualizaron algunos temas relacionados con el entorno de desarrollo:
 
+- Se agrega el script `tests/expression.php` para obtener la expresión de un CFDI.
 - Se corren las pruebas usando PHP 7.3, 7.4, 8.0 y 8.1.
 - Se agregó la herramienta `psalm`.
 - Se agregó la herramienta `infection`.

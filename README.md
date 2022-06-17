@@ -8,7 +8,7 @@
 [![Coverage Status][badge-coverage]][coverage]
 [![Total Downloads][badge-downloads]][downloads]
 
-> Genera expresiones de CFDI 4.4, CFDI 3.3, CFDI 3.2 y RET 1.0
+> Genera expresiones de CFDI 4.4, CFDI 3.3, CFDI 3.2, RET 1.0 y RET 2.0
 
 :us: The documentation of this project is in spanish as this is the natural language for intended audience.
 
@@ -40,6 +40,12 @@ Ejemplo de expresión para RET 1.0:
 
 ```text
 ?&re=XAXX010101000&nr=12345678901234567890%tt=1234567890.123456&id=ad662d33-6934-459c-a128-BDf0393f0f44
+```
+
+Ejemplo de expresión para RET 2.0:
+
+```text
+https://prodretencionverificacion.clouda.sat.gob.mx?id=AAAAAAAA-BBBB-CCCC-DDDD-000000000000&re=Ñ&amp;A010101AAA&nr=0000000000000000000X&tt=123456.78&fe=qsIe6w==
 ```
 
 ## Instalación
