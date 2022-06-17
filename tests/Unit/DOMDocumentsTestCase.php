@@ -30,6 +30,20 @@ class DOMDocumentsTestCase extends TestCase
         return $document;
     }
 
+    public function documentRet20Mexican(): DOMDocument
+    {
+        $document = new DOMDocument();
+        $document->load($this->filePath('ret20-mexican-fake.xml'));
+        return $document;
+    }
+
+    public function documentRet20Foreign(): DOMDocument
+    {
+        $document = new DOMDocument();
+        $document->load($this->filePath('ret20-foreign-fake.xml'));
+        return $document;
+    }
+
     public function documentRet10Mexican(): DOMDocument
     {
         $document = new DOMDocument();

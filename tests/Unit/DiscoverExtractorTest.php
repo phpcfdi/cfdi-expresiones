@@ -12,6 +12,7 @@ use PhpCfdi\CfdiExpresiones\Extractors\Comprobante32;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante33;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante40;
 use PhpCfdi\CfdiExpresiones\Extractors\Retenciones10;
+use PhpCfdi\CfdiExpresiones\Extractors\Retenciones20;
 
 class DiscoverExtractorTest extends DOMDocumentsTestCase
 {
@@ -34,10 +35,11 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
         $extrator = new DiscoverExtractor();
         $extractorClasses = array_map('get_class', $extrator->defaultExtractors());
         $this->assertContains(Retenciones10::class, $extractorClasses);
+        $this->assertContains(Retenciones20::class, $extractorClasses);
         $this->assertContains(Comprobante32::class, $extractorClasses);
         $this->assertContains(Comprobante33::class, $extractorClasses);
         $this->assertContains(Comprobante40::class, $extractorClasses);
-        $this->assertCount(4, $extractorClasses);
+        $this->assertCount(5, $extractorClasses);
     }
 
     public function testDontMatchUsingEmptyDocument(): void
@@ -63,6 +65,8 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
             'Cfdi40' => [$this->documentCfdi40(), 'CFDI40'],
             'Cfdi33' => [$this->documentCfdi33(), 'CFDI33'],
             'Cfdi32' => [$this->documentCfdi32(), 'CFDI32'],
+            'Ret20Mexican' => [$this->documentRet20Mexican(), 'RET20'],
+            'Ret20Foreign' => [$this->documentRet20Foreign(), 'RET20'],
             'Ret10Mexican' => [$this->documentRet10Mexican(), 'RET10'],
             'Ret10Foreign' => [$this->documentRet10Foreign(), 'RET10'],
         ];
