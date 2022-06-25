@@ -21,7 +21,7 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
     {
         $extrator = new DiscoverExtractor();
         $currentExpressionExtractors = $extrator->currentExpressionExtractors();
-        $this->assertCount(3, $currentExpressionExtractors);
+        $this->assertCount(4, $currentExpressionExtractors);
         $this->assertContainsOnlyInstancesOf(ExpressionExtractorInterface::class, $currentExpressionExtractors);
     }
 
@@ -45,6 +45,7 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
     public function providerExpressionOnValidDocuments(): array
     {
         return [
+            'Cfdi40' => [$this->documentCfdi40(), 'CFDI40'],
             'Cfdi33' => [$this->documentCfdi33(), 'CFDI33'],
             'Cfdi32' => [$this->documentCfdi32(), 'CFDI32'],
             'Ret10Mexican' => [$this->documentRet10Mexican(), 'RET10'],
@@ -89,5 +90,11 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
     {
         $extrator = new DiscoverExtractor();
         $this->assertNotEmpty($extrator->format([], 'CFDI33'));
+    }
+
+    public function testFormatUsingCfdi40(): void
+    {
+        $extrator = new DiscoverExtractor();
+        $this->assertNotEmpty($extrator->format([], 'CFDI40'));
     }
 }
