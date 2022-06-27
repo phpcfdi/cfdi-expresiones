@@ -25,7 +25,8 @@ Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
 
 #### Refactorización de métodos compartidos
 
-Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
+Las expresiones de CFDI 3.3 y CFDI 4.0 son idénticas, así como la forma de formatear datos como RFC, Sello, Total, etc. 
+por lo que se refactorizan las clases para poner los métodos comunes en traits.
 
 #### Codificación de caracteres especiales
 
