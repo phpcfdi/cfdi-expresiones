@@ -9,6 +9,12 @@ Usamos [Versionado Semántico 2.0.0](SEMVER.md) por lo que puedes usar esta libr
 Pueden aparecer cambios no liberados que se integran a la rama principal, pero no ameritan una nueva liberación de
 versión, aunque sí su incorporación en la rama principal de trabajo, generalmente se tratan de cambios en el desarrollo.
 
+### Sonarcloud 2022-06-27
+
+- Se agrega la integración con [SonarCloud](https://sonarcloud.io/project/overview?id=phpcfdi_cfdi-expresiones).
+- Se elimina la integración con Scrutinizer-CI. ¡Gracias Scrutinizer-CI! 
+- Se cambian los badges en el archivo `README`.
+
 ## Listado de cambios
 
 ### Version 3.2.0 2022-06-27

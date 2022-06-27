@@ -1,9 +1,15 @@
 # phpcfdi/cfdi-expresiones
 
 [![Source Code][badge-source]][source]
+[![Packagist PHP Version Support][badge-php-version]][php-version]
+[![Discord][badge-discord]][discord]
 [![Latest Version][badge-release]][release]
 [![Software License][badge-license]][license]
 [![Build Status][badge-build]][build]
+[![Reliability][badge-reliability]][reliability]
+[![Maintainability][badge-maintainability]][maintainability]
+[![Code Coverage][badge-coverage]][coverage]
+[![Violations][badge-violations]][violations]
 [![Total Downloads][badge-downloads]][downloads]
 
 > Genera expresiones de CFDI 4.0, CFDI 3.3, CFDI 3.2, RET 1.0 y RET 2.0
@@ -109,13 +115,25 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [todo]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/docs/TODO.md
 
 [source]: https://github.com/phpcfdi/cfdi-expresiones
+[php-version]: https://packagist.org/packages/phpcfdi/cfdi-expresiones
+[discord]: https://discord.gg/aFGYXvX
 [release]: https://github.com/phpcfdi/cfdi-expresiones/releases
 [license]: https://github.com/phpcfdi/cfdi-expresiones/blob/main/LICENSE
 [build]: https://github.com/phpcfdi/cfdi-expresiones/actions/workflows/build.yml?query=branch:main
+[reliability]:https://sonarcloud.io/component_measures?id=phpcfdi_cfdi-expresiones&metric=Reliability
+[maintainability]: https://sonarcloud.io/component_measures?id=phpcfdi_cfdi-expresiones&metric=Maintainability
+[coverage]: https://sonarcloud.io/component_measures?id=phpcfdi_cfdi-expresiones&metric=Coverage
+[violations]: https://sonarcloud.io/project/issues?id=phpcfdi_cfdi-expresiones&resolved=false
 [downloads]: https://packagist.org/packages/phpcfdi/cfdi-expresiones
 
-[badge-source]: https://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?style=flat-square
-[badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg?style=flat-square
-[badge-license]: https://img.shields.io/github/license/phpcfdi/cfdi-expresiones.svg?style=flat-square
-[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/cfdi-expresiones/build/main?style=flat-square
-[badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/cfdi-expresiones.svg?style=flat-square
+[badge-source]: https://img.shields.io/badge/source-phpcfdi/cfdi--expresiones-blue.svg?logo=github
+[badge-php-version]: https://img.shields.io/packagist/php-v/phpcfdi/cfdi-expresiones?logo=php
+[badge-discord]: https://img.shields.io/discord/459860554090283019?logo=discord
+[badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg??logo=git
+[badge-license]: https://img.shields.io/github/license/phpcfdi/cfdi-expresiones.svg?logo=open-source-initiative
+[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/cfdi-expresiones/build/main?logo=github-actions
+[badge-reliability]: https://sonarcloud.io/api/project_badges/measure?project=phpcfdi_cfdi-expresiones&metric=reliability_rating
+[badge-maintainability]: https://sonarcloud.io/api/project_badges/measure?project=phpcfdi_cfdi-expresiones&metric=sqale_rating
+[badge-coverage]: https://img.shields.io/sonar/coverage/phpcfdi_cfdi-expresiones/main?logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io
+[badge-violations]: https://img.shields.io/sonar/violations/phpcfdi_cfdi-expresiones/main?format=long&logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io
+[badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/cfdi-expresiones.svg?logo=packagist
