@@ -45,7 +45,7 @@ Ejemplo de expresión para RET 1.0:
 Ejemplo de expresión para RET 2.0:
 
 ```text
-https://prodretencionverificacion.clouda.sat.gob.mx?id=AAAAAAAA-BBBB-CCCC-DDDD-000000000000&re=Ñ&amp;A010101AAA&nr=0000000000000000000X&tt=123456.78&fe=qsIe6w==
+https://prodretencionverificacion.clouda.sat.gob.mx/?id=AAAAAAAA-BBBB-CCCC-DDDD-000000000000&re=Ñ&amp;A010101AAA&nr=0000000000000000000X&tt=123456.78&fe=qsIe6w==
 ```
 
 ## Instalación

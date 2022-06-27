@@ -85,7 +85,7 @@ class Retenciones20 implements ExpressionExtractorInterface
             $receptorKey = 'nr';
             $values['nr'] = $this->formatForeignTaxId($values['nr']);
         }
-        return 'https://prodretencionverificacion.clouda.sat.gob.mx?'
+        return 'https://prodretencionverificacion.clouda.sat.gob.mx/?'
             . implode('&', [
                 'id=' . ($values['id'] ?? ''),
                 're=' . $this->formatRfc($values['re'] ?? ''),

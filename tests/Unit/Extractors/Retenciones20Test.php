@@ -29,7 +29,7 @@ class Retenciones20Test extends DOMDocumentsTestCase
     {
         $document = $this->documentRet20Foreign();
         $extractor = new Retenciones20();
-        $expectedExpression = 'https://prodretencionverificacion.clouda.sat.gob.mx'
+        $expectedExpression = 'https://prodretencionverificacion.clouda.sat.gob.mx/'
             . '?id=4E3DD8EA-5220-8C42-85A8-E37F9D7502F8'
             . '&re=AAA010101AAA'
             . '&nr=00000000001234567890'
@@ -42,7 +42,7 @@ class Retenciones20Test extends DOMDocumentsTestCase
     {
         $document = $this->documentRet20Mexican();
         $extractor = new Retenciones20();
-        $expectedExpression = 'https://prodretencionverificacion.clouda.sat.gob.mx'
+        $expectedExpression = 'https://prodretencionverificacion.clouda.sat.gob.mx/'
             . '?id=4E3DD8EA-5220-8C42-85A8-E37F9D7502F8'
             . '&re=AAA010101AAA'
             . '&rr=SUL010720JN8'
@@ -89,7 +89,7 @@ class Retenciones20Test extends DOMDocumentsTestCase
     public function testFormatMexican(): void
     {
         $extractor = new Retenciones20();
-        $expected = 'https://prodretencionverificacion.clouda.sat.gob.mx'
+        $expected = 'https://prodretencionverificacion.clouda.sat.gob.mx/'
             . '?id=AAAAAAAA-BBBB-CCCC-DDDD-000000000000'
             . '&re=Ñ&amp;A010101AAA'
             . '&rr=Ñ&amp;A991231AA0'
@@ -108,7 +108,7 @@ class Retenciones20Test extends DOMDocumentsTestCase
     public function testFormatForeign(): void
     {
         $extractor = new Retenciones20();
-        $expected = 'https://prodretencionverificacion.clouda.sat.gob.mx'
+        $expected = 'https://prodretencionverificacion.clouda.sat.gob.mx/'
             . '?id=AAAAAAAA-BBBB-CCCC-DDDD-000000000000'
             . '&re=Ñ&amp;A010101AAA'
             . '&nr=0000000000000000000X'
