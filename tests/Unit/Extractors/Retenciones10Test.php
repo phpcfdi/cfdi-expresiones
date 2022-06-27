@@ -47,8 +47,8 @@ class Retenciones10Test extends DOMDocumentsTestCase
     public function providerCfdiDifferentVersions(): array
     {
         return [
-            'RET 2.0 Mexican' => [$this->documentRet20Mexican()],
-            'RET 2.0 Foreign' => [$this->documentRet20Foreign()],
+            'CFDI 3.3' => [$this->documentCfdi33()],
+            'CFDI 4.0' => [$this->documentCfdi40()],
         ];
     }
 

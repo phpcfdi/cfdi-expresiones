@@ -19,10 +19,6 @@ Se agrega el soporte de CFDI 4.0 con fundamento en el Anexo 20.
 Para ello, la *Especificación técnica del código de barras bidimensional a incorporar en la representación impresa*
 se separa a un estándar interno llamado `CfdiStandard20170701`
 
-#### Soporte de RET 2.0
-
-Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
-
 #### Refactorización de métodos compartidos
 
 Las expresiones de CFDI 3.3 y CFDI 4.0 son idénticas, así como la forma de formatear datos como RFC, Sello, Total, etc. 
