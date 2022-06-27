@@ -11,6 +11,12 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 
 ## Listado de cambios
 
+### Version 3.2.0 2022-06-27
+
+#### Soporte de RET 2.0
+
+Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
+
 ### Version 3.1.0 2022-06-16
 
 #### Soporte de CFDI 4.0
@@ -18,10 +24,6 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 Se agrega el soporte de CFDI 4.0 con fundamento en el Anexo 20.
 Para ello, la *Especificación técnica del código de barras bidimensional a incorporar en la representación impresa*
 se separa a un estándar interno llamado `CfdiStandard20170701`
-
-#### Soporte de RET 2.0
-
-Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
 
 #### Refactorización de métodos compartidos
 
