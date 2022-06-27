@@ -13,6 +13,10 @@ use PhpCfdi\CfdiExpresiones\Internal\MatchDetector;
 
 class Retenciones10 implements ExpressionExtractorInterface
 {
+    use Standards\FormatForeignTaxId20;
+    use Standards\FormatRfcXml;
+    use Standards\FormatTotal10x6;
+
     /** @var MatchDetector */
     private $matchDetector;
 
@@ -52,7 +56,44 @@ class Retenciones10 implements ExpressionExtractorInterface
         );
 
         $rfcEmisor = $helper->getAttribute('retenciones:Retenciones', 'retenciones:Emisor', 'RFCEmisor');
+        [$rfcReceptorKey, $rfcReceptor] = $this->obtainReceptorValues($helper);
+        $total = $helper->getAttribute('retenciones:Retenciones', 'retenciones:Totales', 'montoTotOperacion');
 
+        return [
+            're' => $rfcEmisor,
+            $rfcReceptorKey => $rfcReceptor,
+            'tt' => $this->formatTotal($total),
+            'id' => $uuid,
+        ];
+    }
+
+    public function extract(DOMDocument $document): string
+    {
+        return $this->format($this->obtain($document));
+    }
+
+    public function format(array $values): string
+    {
+        $receptorKey = 'rr';
+        if (isset($values['rr'])) {
+            $values['rr'] = $this->formatRfc($values[$receptorKey]);
+        }
+        if (isset($values['nr'])) {
+            $receptorKey = 'nr';
+            $values['nr'] = $this->formatForeignTaxId($values['nr']);
+        }
+        return '?'
+            . implode('&', [
+                're=' . $this->formatRfc($values['re'] ?? ''),
+                $receptorKey . '=' . ($values[$receptorKey] ?? ''),
+                'tt=' . $this->formatTotal($values['tt'] ?? ''),
+                'id=' . ($values['id'] ?? ''),
+            ]);
+    }
+
+    /** @return array{string, string} */
+    private function obtainReceptorValues(DOMHelper $helper): array
+    {
         $rfcReceptorKey = 'rr';
         $rfcReceptor = $helper->findAttribute(
             'retenciones:Retenciones',
@@ -73,50 +114,7 @@ class Retenciones10 implements ExpressionExtractorInterface
         if (null === $rfcReceptor) {
             throw new AttributeNotFoundException('RET 1.0 receiver tax id cannot be found');
         }
-        if ('nr' === $rfcReceptorKey) {
-            $rfcReceptor = str_pad($rfcReceptor, 20, '0', STR_PAD_LEFT);
-        }
 
-        $total = $this->formatTotal(
-            $helper->getAttribute('retenciones:Retenciones', 'retenciones:Totales', 'montoTotOperacion')
-        );
-
-        return [
-            're' => $rfcEmisor,
-            $rfcReceptorKey => $rfcReceptor,
-            'tt' => $this->formatTotal($total),
-            'id' => $uuid,
-        ];
-    }
-
-    public function extract(DOMDocument $document): string
-    {
-        return $this->format($this->obtain($document));
-    }
-
-    public function format(array $values): string
-    {
-        $receptorKey = 'rr';
-        if (isset($values['nr'])) {
-            $receptorKey = 'nr';
-            $values['nr'] = $this->formatForeignTaxId($values['nr']);
-        }
-        return '?'
-            . implode('&', [
-                're=' . (htmlentities($values['re'] ?? '', ENT_XML1)),
-                $receptorKey . '=' . (htmlentities($values[$receptorKey] ?? '', ENT_XML1)),
-                'tt=' . $this->formatTotal($values['tt'] ?? ''),
-                'id=' . ($values['id'] ?? ''),
-            ]);
-    }
-
-    public function formatForeignTaxId(string $foreignTaxId): string
-    {
-        return str_pad($foreignTaxId, 20, '0', STR_PAD_LEFT);
-    }
-
-    public function formatTotal(string $input): string
-    {
-        return str_pad(number_format(floatval($input), 6, '.', ''), 17, '0', STR_PAD_LEFT);
+        return [$rfcReceptorKey, $rfcReceptor];
     }
 }

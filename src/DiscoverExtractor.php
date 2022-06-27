@@ -8,6 +8,7 @@ use DOMDocument;
 use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante32;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante33;
+use PhpCfdi\CfdiExpresiones\Extractors\Comprobante40;
 use PhpCfdi\CfdiExpresiones\Extractors\Retenciones10;
 
 class DiscoverExtractor implements ExpressionExtractorInterface
@@ -27,6 +28,7 @@ class DiscoverExtractor implements ExpressionExtractorInterface
     public function defaultExtractors(): array
     {
         return [
+            new Comprobante40(),
             new Comprobante33(),
             new Comprobante32(),
             new Retenciones10(),

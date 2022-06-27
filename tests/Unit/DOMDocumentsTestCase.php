@@ -9,6 +9,13 @@ use PhpCfdi\CfdiExpresiones\Tests\TestCase;
 
 class DOMDocumentsTestCase extends TestCase
 {
+    public function documentCfdi40(): DOMDocument
+    {
+        $document = new DOMDocument();
+        $document->load($this->filePath('cfdi40-real.xml'));
+        return $document;
+    }
+
     public function documentCfdi33(): DOMDocument
     {
         $document = new DOMDocument();
