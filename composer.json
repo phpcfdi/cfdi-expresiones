@@ -1,6 +1,6 @@
 {
     "name": "phpcfdi/cfdi-expresiones",
-    "description": "Genera expresiones de CFDI 4.4, CFDI 3.3, CFDI 3.2, RET 1.0 y RET 2.0",
+    "description": "Genera expresiones de CFDI 4.0, CFDI 3.3, CFDI 3.2, RET 1.0 y RET 2.0",
     "keywords": ["phpcfdi", "sat", "cfdi"],
     "homepage": "https://github.com/phpcfdi/cfdi-expresiones",
     "license": "MIT",
