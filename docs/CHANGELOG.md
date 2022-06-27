@@ -11,6 +11,16 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 
 ## Listado de cambios
 
+### Version 3.2.0 2022-06-27
+
+#### Soporte de RET 2.0
+
+Se agrega el soporte de RET 2.0 con fundamento en el Anexo 20.
+
+#### Documentación
+
+Se corrigen los textos que tenían una versión incorrecta y se refieren a CFDI 4.0.
+
 ### Version 3.1.0 2022-06-16
 
 #### Soporte de CFDI 4.0

@@ -13,8 +13,8 @@ class Comprobante32Test extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {
-        $extrator = new Comprobante32();
-        $this->assertSame('CFDI32', $extrator->uniqueName());
+        $extractor = new Comprobante32();
+        $this->assertSame('CFDI32', $extractor->uniqueName());
     }
 
     public function testMatchesCfdi32(): void

@@ -10,6 +10,7 @@ use PhpCfdi\CfdiExpresiones\Extractors\Comprobante32;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante33;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante40;
 use PhpCfdi\CfdiExpresiones\Extractors\Retenciones10;
+use PhpCfdi\CfdiExpresiones\Extractors\Retenciones20;
 
 class DiscoverExtractor implements ExpressionExtractorInterface
 {
@@ -31,6 +32,7 @@ class DiscoverExtractor implements ExpressionExtractorInterface
             new Comprobante40(),
             new Comprobante33(),
             new Comprobante32(),
+            new Retenciones20(),
             new Retenciones10(),
         ];
     }

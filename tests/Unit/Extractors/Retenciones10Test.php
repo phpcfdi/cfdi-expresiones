@@ -14,8 +14,8 @@ class Retenciones10Test extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {
-        $extrator = new Retenciones10();
-        $this->assertSame('RET10', $extrator->uniqueName());
+        $extractor = new Retenciones10();
+        $this->assertSame('RET10', $extractor->uniqueName());
     }
 
     public function testMatchesRetenciones10(): void
@@ -47,8 +47,8 @@ class Retenciones10Test extends DOMDocumentsTestCase
     public function providerCfdiDifferentVersions(): array
     {
         return [
-            'CFDI 3.3' => [$this->documentCfdi33()],
-            'CFDI 4.0' => [$this->documentCfdi40()],
+            'RET 2.0 Mexican' => [$this->documentRet20Mexican()],
+            'RET 2.0 Foreign' => [$this->documentRet20Foreign()],
         ];
     }
 
