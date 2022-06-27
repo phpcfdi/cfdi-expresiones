@@ -14,8 +14,8 @@ class Retenciones20Test extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {
-        $extrator = new Retenciones20();
-        $this->assertSame('RET20', $extrator->uniqueName());
+        $extractor = new Retenciones20();
+        $this->assertSame('RET20', $extractor->uniqueName());
     }
 
     public function testMatchesRetenciones20(): void

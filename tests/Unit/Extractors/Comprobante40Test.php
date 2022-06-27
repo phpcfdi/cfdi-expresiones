@@ -13,8 +13,8 @@ class Comprobante40Test extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {
-        $extrator = new Comprobante40();
-        $this->assertSame('CFDI40', $extrator->uniqueName());
+        $extractor = new Comprobante40();
+        $this->assertSame('CFDI40', $extractor->uniqueName());
     }
 
     public function testMatchesCfdi40(): void

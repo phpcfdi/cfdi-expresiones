@@ -18,22 +18,22 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {
-        $extrator = new DiscoverExtractor();
-        $this->assertSame('discover', $extrator->uniqueName());
+        $extractor = new DiscoverExtractor();
+        $this->assertSame('discover', $extractor->uniqueName());
     }
 
-    public function testGenericExtratorUsesDefaults(): void
+    public function testGenericExtractorUsesDefaults(): void
     {
-        $extrator = new DiscoverExtractor();
-        $currentExpressionExtractors = $extrator->currentExpressionExtractors();
+        $extractor = new DiscoverExtractor();
+        $currentExpressionExtractors = $extractor->currentExpressionExtractors();
         $this->assertGreaterThan(0, count($currentExpressionExtractors));
         $this->assertContainsOnlyInstancesOf(ExpressionExtractorInterface::class, $currentExpressionExtractors);
     }
 
     public function testDefaultExtractorContainsKnownClasses(): void
     {
-        $extrator = new DiscoverExtractor();
-        $extractorClasses = array_map('get_class', $extrator->defaultExtractors());
+        $extractor = new DiscoverExtractor();
+        $extractorClasses = array_map('get_class', $extractor->defaultExtractors());
         $this->assertContains(Retenciones10::class, $extractorClasses);
         $this->assertContains(Retenciones20::class, $extractorClasses);
         $this->assertContains(Comprobante32::class, $extractorClasses);
@@ -45,17 +45,17 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
     public function testDontMatchUsingEmptyDocument(): void
     {
         $document = new DOMDocument();
-        $extrator = new DiscoverExtractor();
-        $this->assertFalse($extrator->matches($document));
+        $extractor = new DiscoverExtractor();
+        $this->assertFalse($extractor->matches($document));
     }
 
     public function testThrowExceptionOnUnmatchedDocument(): void
     {
         $document = new DOMDocument();
-        $extrator = new DiscoverExtractor();
+        $extractor = new DiscoverExtractor();
         $this->expectException(UnmatchedDocumentException::class);
         $this->expectExceptionMessage('Cannot discover any DiscoverExtractor that matches with document');
-        $extrator->extract($document);
+        $extractor->extract($document);
     }
 
     /** @return array<string, array{DOMDocument, string}> */
@@ -78,9 +78,9 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
      */
     public function testExpressionOnValidDocuments(DOMDocument $document): void
     {
-        $extrator = new DiscoverExtractor();
-        $this->assertTrue($extrator->matches($document));
-        $this->assertNotEmpty($extrator->extract($document));
+        $extractor = new DiscoverExtractor();
+        $this->assertTrue($extractor->matches($document));
+        $this->assertNotEmpty($extractor->extract($document));
     }
 
     /**
@@ -90,24 +90,24 @@ class DiscoverExtractorTest extends DOMDocumentsTestCase
      */
     public function testExtractProducesTheSameResultsAsObtainAndFormat(DOMDocument $document, string $type): void
     {
-        $extrator = new DiscoverExtractor();
-        $values = $extrator->obtain($document);
-        $expression = $extrator->format($values, $type);
-        $expectedExpression = $extrator->extract($document);
+        $extractor = new DiscoverExtractor();
+        $values = $extractor->obtain($document);
+        $expression = $extractor->format($values, $type);
+        $expectedExpression = $extractor->extract($document);
         $this->assertSame($expression, $expectedExpression);
     }
 
     public function testFormatUsingNoType(): void
     {
-        $extrator = new DiscoverExtractor();
+        $extractor = new DiscoverExtractor();
         $this->expectException(UnmatchedDocumentException::class);
         $this->expectExceptionMessage('DiscoverExtractor requires type key with an extractor identifier');
-        $extrator->format([]);
+        $extractor->format([]);
     }
 
     public function testFormatUsingCfdi33(): void
     {
-        $extrator = new DiscoverExtractor();
-        $this->assertNotEmpty($extrator->format([], 'CFDI33'));
+        $extractor = new DiscoverExtractor();
+        $this->assertNotEmpty($extractor->format([], 'CFDI33'));
     }
 }
