@@ -14,7 +14,7 @@
 
 :mexico: La documentación del proyecto está en español porque ese es el lenguaje principal de los usuarios.
 
-Esta librería contiene objetos de ayuda para crear expresiones de CFDI 3.2, CFDI 3.3, CFDI 4.0 y RET 1.0
+Esta librería contiene objetos de ayuda para crear expresiones de CFDI 3.2, CFDI 3.3, CFDI 4.0, RET 1.0 y RET 2.0 
 de acuerdo a la información técnica del SAT en el Anexo 20.
 
 Estas expresiones se utilizan principalmente para dos motivos:
