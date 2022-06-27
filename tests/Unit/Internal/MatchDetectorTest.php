@@ -9,7 +9,7 @@ use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
 use PhpCfdi\CfdiExpresiones\Internal\MatchDetector;
 use PhpCfdi\CfdiExpresiones\Tests\TestCase;
 
-class MatchDetectorTest extends TestCase
+final class MatchDetectorTest extends TestCase
 {
     public function testCheckPossitiveMatch(): void
     {

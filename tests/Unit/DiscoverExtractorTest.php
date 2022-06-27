@@ -14,7 +14,7 @@ use PhpCfdi\CfdiExpresiones\Extractors\Comprobante40;
 use PhpCfdi\CfdiExpresiones\Extractors\Retenciones10;
 use PhpCfdi\CfdiExpresiones\Extractors\Retenciones20;
 
-class DiscoverExtractorTest extends DOMDocumentsTestCase
+final class DiscoverExtractorTest extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {

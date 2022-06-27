@@ -10,7 +10,7 @@ use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
 use PhpCfdi\CfdiExpresiones\Extractors\Retenciones10;
 use PhpCfdi\CfdiExpresiones\Tests\Unit\DOMDocumentsTestCase;
 
-class Retenciones10Test extends DOMDocumentsTestCase
+final class Retenciones10Test extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {

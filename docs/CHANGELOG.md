@@ -14,6 +14,7 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 - Se agrega la integración con [SonarCloud](https://sonarcloud.io/project/overview?id=phpcfdi_cfdi-expresiones).
 - Se elimina la integración con Scrutinizer-CI. ¡Gracias Scrutinizer-CI! 
 - Se cambian los badges en el archivo `README`.
+- Se corrigen las clases en las pruebas para que tengan alguno de los modificadores `final` o `abstract`.
 
 ## Listado de cambios
 

@@ -7,7 +7,7 @@ namespace PhpCfdi\CfdiExpresiones\Tests\Unit;
 use DOMDocument;
 use PhpCfdi\CfdiExpresiones\Tests\TestCase;
 
-class DOMDocumentsTestCase extends TestCase
+abstract class DOMDocumentsTestCase extends TestCase
 {
     public function documentCfdi40(): DOMDocument
     {

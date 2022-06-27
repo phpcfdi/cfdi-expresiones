@@ -9,7 +9,7 @@ use PhpCfdi\CfdiExpresiones\Exceptions\UnmatchedDocumentException;
 use PhpCfdi\CfdiExpresiones\Extractors\Comprobante40;
 use PhpCfdi\CfdiExpresiones\Tests\Unit\DOMDocumentsTestCase;
 
-class Comprobante40Test extends DOMDocumentsTestCase
+final class Comprobante40Test extends DOMDocumentsTestCase
 {
     public function testUniqueName(): void
     {

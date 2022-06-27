@@ -12,7 +12,7 @@ use PhpCfdi\CfdiExpresiones\Exceptions\ElementNotFoundException;
 use PhpCfdi\CfdiExpresiones\Internal\DOMHelper;
 use PhpCfdi\CfdiExpresiones\Tests\TestCase;
 
-class DOMHelperTest extends TestCase
+final class DOMHelperTest extends TestCase
 {
     public function testFailsUsingDocumentWithoutRootElement(): void
     {
