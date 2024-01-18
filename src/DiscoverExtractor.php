@@ -15,14 +15,14 @@ use PhpCfdi\CfdiExpresiones\Extractors\Retenciones20;
 class DiscoverExtractor implements ExpressionExtractorInterface
 {
     /** @var ExpressionExtractorInterface[] */
-    private $expressions;
+    private $extractors;
 
-    public function __construct(ExpressionExtractorInterface ...$expressions)
+    public function __construct(ExpressionExtractorInterface ...$extractors)
     {
-        if ([] === $expressions) {
-            $expressions = $this->defaultExtractors();
+        if ([] === $extractors) {
+            $extractors = $this->defaultExtractors();
         }
-        $this->expressions = $expressions;
+        $this->extractors = $extractors;
     }
 
     /** @return ExpressionExtractorInterface[] */
@@ -40,14 +40,14 @@ class DiscoverExtractor implements ExpressionExtractorInterface
     /** @return ExpressionExtractorInterface[] */
     public function currentExpressionExtractors(): array
     {
-        return $this->expressions;
+        return $this->extractors;
     }
 
     protected function findByUniqueName(string $uniqueName): ?ExpressionExtractorInterface
     {
-        foreach ($this->expressions as $expression) {
-            if ($uniqueName === $expression->uniqueName()) {
-                return $expression;
+        foreach ($this->extractors as $extractor) {
+            if ($uniqueName === $extractor->uniqueName()) {
+                return $extractor;
             }
         }
         return null;
@@ -55,9 +55,9 @@ class DiscoverExtractor implements ExpressionExtractorInterface
 
     protected function findMatch(DOMDocument $document): ?ExpressionExtractorInterface
     {
-        foreach ($this->expressions as $expression) {
-            if ($expression->matches($document)) {
-                return $expression;
+        foreach ($this->extractors as $extractor) {
+            if ($extractor->matches($document)) {
+                return $extractor;
             }
         }
         return null;
