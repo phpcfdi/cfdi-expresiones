@@ -74,7 +74,7 @@ class DiscoverExtractor implements ExpressionExtractorInterface
 
     public function matches(DOMDocument $document): bool
     {
-        return (null !== $this->findMatch($document));
+        return null !== $this->findMatch($document);
     }
 
     public function uniqueName(): string
