@@ -119,7 +119,7 @@ jobs:
       - name: Install project dependencies
         run: composer upgrade --no-interaction --no-progress --prefer-dist
       - name: Tests
-        run: vendor/bin/phpunit --testdox --verbose
+        run: vendor/bin/phpunit --testdox
 
   infection:
     name: Mutation testing analysis
