@@ -131,7 +131,7 @@ and licensed for use under the MIT License (MIT). Please see [LICENSE][] for mor
 [badge-discord]: https://img.shields.io/discord/459860554090283019?logo=discord
 [badge-release]: https://img.shields.io/github/release/phpcfdi/cfdi-expresiones.svg??logo=git
 [badge-license]: https://img.shields.io/github/license/phpcfdi/cfdi-expresiones.svg?logo=open-source-initiative
-[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/cfdi-expresiones/build/main?logo=github-actions
+[badge-build]: https://img.shields.io/github/actions/workflow/status/phpcfdi/cfdi-expresiones/build.yml?branch=main&logo=github-actions
 [badge-reliability]: https://sonarcloud.io/api/project_badges/measure?project=phpcfdi_cfdi-expresiones&metric=reliability_rating
 [badge-maintainability]: https://sonarcloud.io/api/project_badges/measure?project=phpcfdi_cfdi-expresiones&metric=sqale_rating
 [badge-coverage]: https://img.shields.io/sonar/coverage/phpcfdi_cfdi-expresiones/main?logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io
