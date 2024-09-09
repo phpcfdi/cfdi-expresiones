@@ -15,6 +15,7 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 - En los flujos de trabajo de integración continua:
   - Se actualizan las acciones a la versión 4.
   - Se utiliza `matrix.php-version` en lugar de `matrix.php-versions`.
+  - Se remueve la (innecesaria) instalación de `poppler-utils`.
 - Se actualizan las herramientas de desarrollo.
 
 ### Mantenimiento 2024-01-17
