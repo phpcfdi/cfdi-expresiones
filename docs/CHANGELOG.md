@@ -9,6 +9,20 @@ Usamos [Versionado Semántico 2.0.0](SEMVER.md) por lo que puedes usar esta libr
 Pueden aparecer cambios no liberados que se integran a la rama principal, pero no ameritan una nueva liberación de
 versión, aunque sí su incorporación en la rama principal de trabajo, generalmente se tratan de cambios en el desarrollo.
 
+## Listado de cambios
+
+### Version 3.2.1 2025-04-13
+
+- Se comprueba que el proyecto es compatible con PHP 8.4.
+- Se genera una excepción lógica cuando el método `DOMHelper#getAttribute()` es llamado sin argumentos.
+
+Los siguientes cambios aplican al entorno de desarrollo.
+
+- Se agrega PHP 8.4 a la matriz de pruebas.
+- Se ejecutan los flujos de trabajo con PHP 8.4.
+- Se actualizan las herramientas de desarrollo.
+- Se actualizó la herramienta para ejecutar *Sonarqube* en el flujo de trabajo *sonarcloud*.
+
 ### Mantenimiento 2024-09-09
 
 - Se remueven los paréntesis innecesarios de las llamadas `return`.
@@ -41,8 +55,6 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 - Se elimina la integración con Scrutinizer-CI. ¡Gracias Scrutinizer-CI! 
 - Se cambian los badges en el archivo `README`.
 - Se corrigen las clases en las pruebas para que tengan alguno de los modificadores `final` o `abstract`.
-
-## Listado de cambios
 
 ### Version 3.2.0 2022-06-27
 
