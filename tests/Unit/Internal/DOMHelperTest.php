@@ -162,4 +162,15 @@ final class DOMHelperTest extends TestCase
         $attribute = $helper->getAttribute('b:books', 'b:library', 't:topic', 'b:book', 'author');
         $this->assertSame('Carlos C Soto', $attribute);
     }
+
+    public function testGetAttributeWithNoArguments(): void
+    {
+        $document = new DOMDocument();
+        $helper = new DOMHelper($document);
+        $document->load($this->filePath('books.xml'));
+
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('Attrribute path cannot be empty');
+        $helper->getAttribute();
+    }
 }

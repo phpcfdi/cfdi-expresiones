@@ -34,6 +34,9 @@ class DOMHelper
 
     public function getAttribute(string ...$path): string
     {
+        if ([] === $path) {
+            throw new LogicException('Attrribute path cannot be empty');
+        }
         $value = $this->findAttribute(...$path);
         if (null === $value) {
             $attribute = array_pop($path);

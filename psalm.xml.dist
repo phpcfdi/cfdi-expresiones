@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <psalm xmlns="https://getpsalm.org/schema/config"
-    resolveFromConfigFile="true"
     errorLevel="1">
     <projectFiles>
         <directory name="src" />
@@ -10,6 +9,10 @@
     </projectFiles>
 
     <issueHandlers>
+        <PossiblyUnusedMethod errorLevel="info" />
+        <UnusedClass errorLevel="info" />
+        <ClassMustBeFinal errorLevel="info" />
+        <MissingOverrideAttribute errorLevel="info" />
         <LessSpecificReturnType errorLevel="info" />
     </issueHandlers>
 </psalm>
