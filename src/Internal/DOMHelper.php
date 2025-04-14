@@ -16,7 +16,7 @@ use PhpCfdi\CfdiExpresiones\Exceptions\ElementNotFoundException;
  */
 class DOMHelper
 {
-    public function __construct(private DOMDocument $document)
+    public function __construct(private readonly DOMDocument $document)
     {
     }
 

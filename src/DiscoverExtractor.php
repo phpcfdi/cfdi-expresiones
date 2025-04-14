@@ -15,7 +15,7 @@ use PhpCfdi\CfdiExpresiones\Extractors\Retenciones20;
 class DiscoverExtractor implements ExpressionExtractorInterface
 {
     /** @var ExpressionExtractorInterface[] */
-    private array $extractors;
+    private readonly array $extractors;
 
     public function __construct(ExpressionExtractorInterface ...$extractors)
     {
