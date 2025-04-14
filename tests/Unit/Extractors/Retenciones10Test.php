@@ -44,11 +44,11 @@ final class Retenciones10Test extends DOMDocumentsTestCase
     }
 
     /** @return array<string, array{DOMDocument}> */
-    public function providerCfdiDifferentVersions(): array
+    public static function providerCfdiDifferentVersions(): array
     {
         return [
-            'RET 2.0 Mexican' => [$this->documentRet20Mexican()],
-            'RET 2.0 Foreign' => [$this->documentRet20Foreign()],
+            'RET 2.0 Mexican' => [self::documentRet20Mexican()],
+            'RET 2.0 Foreign' => [self::documentRet20Foreign()],
         ];
     }
 

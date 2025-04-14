@@ -59,16 +59,16 @@ final class DiscoverExtractorTest extends DOMDocumentsTestCase
     }
 
     /** @return array<string, array{DOMDocument, string}> */
-    public function providerExpressionOnValidDocuments(): array
+    public static function providerExpressionOnValidDocuments(): array
     {
         return [
-            'Cfdi40' => [$this->documentCfdi40(), 'CFDI40'],
-            'Cfdi33' => [$this->documentCfdi33(), 'CFDI33'],
-            'Cfdi32' => [$this->documentCfdi32(), 'CFDI32'],
-            'Ret20Mexican' => [$this->documentRet20Mexican(), 'RET20'],
-            'Ret20Foreign' => [$this->documentRet20Foreign(), 'RET20'],
-            'Ret10Mexican' => [$this->documentRet10Mexican(), 'RET10'],
-            'Ret10Foreign' => [$this->documentRet10Foreign(), 'RET10'],
+            'Cfdi40' => [self::documentCfdi40(), 'CFDI40'],
+            'Cfdi33' => [self::documentCfdi33(), 'CFDI33'],
+            'Cfdi32' => [self::documentCfdi32(), 'CFDI32'],
+            'Ret20Mexican' => [self::documentRet20Mexican(), 'RET20'],
+            'Ret20Foreign' => [self::documentRet20Foreign(), 'RET20'],
+            'Ret10Mexican' => [self::documentRet10Mexican(), 'RET10'],
+            'Ret10Foreign' => [self::documentRet10Foreign(), 'RET10'],
         ];
     }
 

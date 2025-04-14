@@ -18,6 +18,7 @@ Esto incluye cambios al código relacionados con tipos, calidad de código y eli
 
 Los siguientes cambios aplican al entorno de desarrollo.
 
+- Se actualizan las pruebas a PHPUnit 10.
 - Se agrega la herramienta `composer-normalize` al proceso de construcción.
 - Se actualiza el estándar de código para `phpcs` y `php-cs-fixer`.
 
