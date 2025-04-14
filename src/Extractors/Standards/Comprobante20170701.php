@@ -20,11 +20,9 @@ abstract class Comprobante20170701 implements ExpressionExtractorInterface
     use FormatTotal18x6;
     use FormatSelloLast8;
 
-    /** @var MatchDetector */
-    private $matchDetector;
+    private MatchDetector $matchDetector;
 
-    /** @var string */
-    private $unmatchedExceptionMessage;
+    private string $unmatchedExceptionMessage;
 
     public function __construct(MatchDetector $matchDetector, string $unmatchedExceptionMessage)
     {
