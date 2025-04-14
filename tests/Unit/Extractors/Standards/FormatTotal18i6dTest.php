@@ -11,7 +11,6 @@ final class FormatTotal18i6dTest extends TestCase
 {
     /**
      * @param string $input total cannot have more than 6 decimals as set in Anexo 20
-     * @param string $expectedFormat
      * @testWith ["123.45", "123.45"]
      *           ["0.123456", "0.123456"]
      *           ["0.1234561", "0.123456"]

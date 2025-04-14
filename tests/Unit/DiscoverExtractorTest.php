@@ -73,7 +73,6 @@ final class DiscoverExtractorTest extends DOMDocumentsTestCase
     }
 
     /**
-     * @param DOMDocument $document
      * @dataProvider providerExpressionOnValidDocuments
      */
     public function testExpressionOnValidDocuments(DOMDocument $document): void
@@ -84,8 +83,6 @@ final class DiscoverExtractorTest extends DOMDocumentsTestCase
     }
 
     /**
-     * @param DOMDocument $document
-     * @param string $type
      * @dataProvider providerExpressionOnValidDocuments
      */
     public function testExtractProducesTheSameResultsAsObtainAndFormat(DOMDocument $document, string $type): void

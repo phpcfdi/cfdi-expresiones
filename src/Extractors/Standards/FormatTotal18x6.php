@@ -10,7 +10,7 @@ trait FormatTotal18x6
     {
         $total = rtrim(number_format(floatval($input), 6, '.', ''), '0');
         if ('.' === substr($total, -1)) {
-            $total = $total . '0'; // add trailing zero
+            $total .= '0'; // add trailing zero
         }
         return $total;
     }

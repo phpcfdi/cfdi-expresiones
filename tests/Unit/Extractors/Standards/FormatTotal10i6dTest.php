@@ -13,7 +13,6 @@ final class FormatTotal10i6dTest extends TestCase
      * Total must be 6 decimals and 17 total length zero padding on left
      *
      * @param string $input total cannot have more than 6 decimals as set in Anexo 20
-     * @param string $expectedFormat
      * @testWith ["123.45",     "0000000123.450000"]
      *           ["0.123456",   "0000000000.123456"]
      *           ["0.1234561",  "0000000000.123456"]
