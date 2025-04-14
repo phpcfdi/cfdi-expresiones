@@ -16,11 +16,8 @@ use PhpCfdi\CfdiExpresiones\Exceptions\ElementNotFoundException;
  */
 class DOMHelper
 {
-    private \DOMDocument $document;
-
-    public function __construct(DOMDocument $document)
+    public function __construct(private DOMDocument $document)
     {
-        $this->document = $document;
     }
 
     public function rootElement(): DOMElement
