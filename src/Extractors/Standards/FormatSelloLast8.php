@@ -8,6 +8,6 @@ trait FormatSelloLast8
 {
     public function formatSello(string $sello): string
     {
-        return (string) substr($sello, -8);
+        return substr($sello, -8);
     }
 }

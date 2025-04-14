@@ -18,8 +18,7 @@ class Retenciones20 implements ExpressionExtractorInterface
     use Standards\FormatTotal18x6;
     use Standards\FormatSelloLast8;
 
-    /** @var MatchDetector */
-    private $matchDetector;
+    private MatchDetector $matchDetector;
 
     public function __construct()
     {

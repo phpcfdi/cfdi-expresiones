@@ -17,8 +17,7 @@ class Retenciones10 implements ExpressionExtractorInterface
     use Standards\FormatRfcXml;
     use Standards\FormatTotal10x6;
 
-    /** @var MatchDetector */
-    private $matchDetector;
+    private MatchDetector $matchDetector;
 
     public function __construct()
     {

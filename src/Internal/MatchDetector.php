@@ -53,7 +53,7 @@ class MatchDetector
     {
         try {
             $this->check($document);
-        } catch (UnmatchedDocumentException $exception) {
+        } catch (UnmatchedDocumentException) {
             return false;
         }
         return true;

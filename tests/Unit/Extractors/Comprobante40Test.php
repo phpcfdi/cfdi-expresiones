@@ -34,11 +34,11 @@ final class Comprobante40Test extends DOMDocumentsTestCase
     }
 
     /** @return array<string, array{DOMDocument}> */
-    public function providerCfdiDifferentVersions(): array
+    public static function providerCfdiDifferentVersions(): array
     {
         return [
-            'CFDI 3.3' => [$this->documentCfdi33()],
-            'CFDI 3.2' => [$this->documentCfdi32()],
+            'CFDI 3.3' => [self::documentCfdi33()],
+            'CFDI 3.2' => [self::documentCfdi32()],
         ];
     }
 

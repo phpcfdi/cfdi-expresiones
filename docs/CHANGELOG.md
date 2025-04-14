@@ -11,6 +11,17 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 
 ## Listado de cambios
 
+### Version 3.3.0 2025-04-13
+
+Se elimina el soporte para PHP 7.3, PHP 7.4 y PHP 8.0.  La versión mínima es ahora PHP 8.1.
+Esto incluye cambios al código relacionados con tipos, calidad de código y eliminación de código muerto.
+
+Los siguientes cambios aplican al entorno de desarrollo.
+
+- Se actualizan las pruebas a PHPUnit 10.
+- Se agrega la herramienta `composer-normalize` al proceso de construcción.
+- Se actualiza el estándar de código para `phpcs` y `php-cs-fixer`.
+
 ### Version 3.2.1 2025-04-13
 
 - Se comprueba que el proyecto es compatible con PHP 8.4.
