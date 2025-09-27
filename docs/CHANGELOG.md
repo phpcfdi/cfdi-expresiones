@@ -11,9 +11,17 @@ versión, aunque sí su incorporación en la rama principal de trabajo, generalm
 
 ## Listado de cambios
 
+### Mantenimiento 2025-09-27
+
+- Se actualizan las herramientas `phpcs` y `phpcbf` a la versión 4.0.0.
+- Se elimina la regla `Generic.Functions.CallTimePassByReference`.
+- Se moderniza la integración con SonarQube-Cloud.
+- Se actualiza `sonarqube-scan-action` a la versión 6.
+- Se corrigen los emblemas de SonarQube Cloud.
+
 ### Version 3.3.0 2025-04-13
 
-Se elimina el soporte para PHP 7.3, PHP 7.4 y PHP 8.0.  La versión mínima es ahora PHP 8.1.
+Se elimina el soporte para PHP 7.3, PHP 7.4 y PHP 8.0. La versión mínima es ahora PHP 8.1.
 Esto incluye cambios al código relacionados con tipos, calidad de código y eliminación de código muerto.
 
 Los siguientes cambios aplican al entorno de desarrollo.
